@@ -1,0 +1,77 @@
+
+<p class="text-center fs-3" [ngClass]="{'text-success pb-1': isAccCreated, 'text-danger pb-1': !isAccCreated}">
+    {{ displayMessage }}
+  </p>
+  
+
+
+<form [formGroup]="registerForm" (ngSubmit)="signUpSubmitted()" class="border p-3 rounded-3">
+    <div class="row">
+        <div class = "col text-center p-2 mb-3 bg-light">
+            Sign Up
+        </div>
+    </div>
+    <div class="row">
+        <div class = "col">
+            <label for="firstName" class="form-label">First Name</label>
+            <input type="text" name="firstName" id="firstName" class="form-control" formControlName="firstName">
+            <div class="form-text text-danger" *ngIf="FirstName.errors?.['required'] && FirstName.touched">First Name is required </div>
+            
+        </div>
+    </div>
+    <div class="row">
+        <div class = "col">
+            <label for="lastName" class="form-label">Last Name</label>
+            <input type="text" name="lastName" id="lastName" class="form-control" formControlName="lastName">
+            <div class="form-text text-danger" *ngIf="LastName.errors?.['required'] && LastName.touched">Last Name is required </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class = "col">
+            <label for="email" class="form-label">Email Id</label>
+            <input type="email" name="email" id="email" class="form-control" formControlName="email">
+            <div class="form-text text-danger" *ngIf="Email.errors?.['required'] && Email.touched">Email ID is required</div>
+            <div class="form-text text-danger" *ngIf="Email.errors?.['email'] && Email.touched">Invalid Email ID </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class = "col">
+            <label for="mobile" class="form-label">Phone Number</label>
+            <input type="text" name="mobile" id="mobile" class="form-control" formControlName="mobile">
+            <div class="form-text text-danger" *ngIf="Mobile.errors?.['required'] && Mobile.touched">Phone Number is required </div>
+            <div class="form-text text-danger" *ngIf="Mobile.errors?.['pattern'] && Mobile.touched">Phone Number is invalid </div>
+            <div class="form-text text-danger" *ngIf="Mobile.errors?.['minlength'] && Mobile.touched">Phone Number is shorter than expected</div>
+            <div class="form-text text-danger" *ngIf="Mobile.errors?.['maxlength'] && Mobile.touched">Phone Number is longer than expected</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class = "col">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" name="password" id="password" class="form-control" formControlName="password">
+            <div class="form-text text-danger" *ngIf="Password.errors?.['minlength'] && Password.touched">Password should be minimum 8 characters long</div>
+            <div class="form-text text-danger" *ngIf="Password.errors?.['maxlength'] && Password.touched">Password should be maximum 20 characters long</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class = "col">
+            <label for="confirmPassword" class="form-label">Confirm Password</label>
+            <input type="password" name="confirmPassword" id="confirmPassword" class="form-control" formControlName="confirmPassword">
+            <div class="form-text text-danger" [ngStyle]="{'display':errorMessage}">Passwords do not match</div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class = "col-6 offset-3">
+            <div class="d-grid">
+                <button type="submit" class="btn btn-primary" [disabled]="registerForm.invalid">Submit</button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class = "col-6 offset-3">
+            <div class="d-grid">
+                <button type="submit" class="btn btn-primary" [disabled]="registerForm.invalid">Submit</button>
+            </div>
+        </div>
+    </div>
+</form>
