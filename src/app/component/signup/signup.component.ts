@@ -51,8 +51,6 @@ export class SignupComponent {
         else{
           this.displayMessage="Something Went Wrong"
         }
-
-      console.log("aj")
       })
     }
     else{

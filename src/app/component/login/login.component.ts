@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { FormGroup,Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { SignupService } from 'src/app/services/signup.service';
 
 @Component({
@@ -10,12 +11,16 @@ import { SignupService } from 'src/app/services/signup.service';
 })
 export class LoginComponent {
 
-  constructor(private signupService:SignupService){}
+  constructor(private signupService:SignupService,private router:Router){}
+
+
+
     login = new FormGroup({
     email: new FormControl("",[ Validators.required]),
     password: new FormControl("",[Validators.required]),
   });
 
+  isUserLoggedIn:Boolean=false;
 
   loginSubmit(){
     this.signupService.loginUser(
@@ -23,11 +28,15 @@ export class LoginComponent {
         this.login.value.password||''
       ]
     ).subscribe(res=>{
-      if(res=="True"){
-        console.log("login Successful")
+      
+      if(res=="False"){
+        console.log("Invalid Credentials")
       }
       else{
-        console.log("Invalid Credentials")
+        console.log("login Successful");
+        this.isUserLoggedIn=true;
+        this.signupService.setToken("token");
+        this.router.navigateByUrl("/dashboard");
       }
     })
   }
@@ -38,4 +47,5 @@ export class LoginComponent {
   get Password(){
     return this.login.get("password") as FormControl
   }
+  
 }
