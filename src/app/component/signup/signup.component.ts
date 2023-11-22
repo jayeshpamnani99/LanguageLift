@@ -20,10 +20,8 @@ export class SignupComponent {
 
   }
   registerForm = new FormGroup({
-    firstName: new FormControl("",[Validators.required]),
-    lastName: new FormControl("",[Validators.required]),
+    name: new FormControl("",[Validators.required]),
     email: new FormControl("",[Validators.email, Validators.required]),
-    mobile: new FormControl("",[Validators.required, Validators.minLength(10),Validators.maxLength(10),Validators.pattern("[0-9]*")]),
     password: new FormControl("",[Validators.required,
     Validators.minLength(8),Validators.maxLength(15)]),
     confirmPassword: new FormControl("",Validators.required),
@@ -34,10 +32,9 @@ export class SignupComponent {
     if (this.Password.value==this.ConfirmPassword.value){
       console.log(this.registerForm)
       this.signupService.registerUser(
-        [this.registerForm.value.firstName||'',
-          this.registerForm.value.lastName||'',
+        [
+          this.registerForm.value.name||'',
           this.registerForm.value.email||'',
-          this.registerForm.value.mobile||'',
           this.registerForm.value.password||''
         ]
       ).subscribe(res=>{
@@ -58,17 +55,11 @@ export class SignupComponent {
     }
   }
 
-  get FirstName(){
-    return this.registerForm.get("firstName") as FormControl
-  }
-  get LastName(){
-    return this.registerForm.get("lastName") as FormControl
+  get name(){
+    return this.registerForm.get("name") as FormControl
   }
   get Email(){
     return this.registerForm.get("email") as FormControl
-  }
-  get Mobile(){
-    return this.registerForm.get("mobile") as FormControl
   }
   get Password(){
     return this.registerForm.get("password") as FormControl

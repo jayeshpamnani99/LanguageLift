@@ -18,11 +18,9 @@ export class SignupService {
 
   registerUser(user:Array<String>){
     return this.http.post(this.umsUrl+"newUser/",{
-      FirstName:user[0],
-      LastName:user[1],
-      Email:user[2],
-      Mobile:user[3],
-      Password:user[4]
+      name:user[0],
+      Email:user[1],
+      Password:user[2]
     },{
       responseType:'json'
     });

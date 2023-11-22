@@ -21,6 +21,11 @@ export class LoginComponent {
   });
 
   isUserLoggedIn:Boolean=false;
+  signUp=new FormGroup({});
+
+  signUpSubmit(){
+    this.router.navigateByUrl("/signup");
+  }
 
   loginSubmit(){
     this.signupService.loginUser(

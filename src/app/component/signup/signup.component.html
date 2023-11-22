@@ -13,17 +13,9 @@
     </div>
     <div class="row">
         <div class = "col">
-            <label for="firstName" class="form-label">First Name</label>
-            <input type="text" name="firstName" id="firstName" class="form-control" formControlName="firstName">
-            <div class="form-text text-danger" *ngIf="FirstName.errors?.['required'] && FirstName.touched">First Name is required </div>
-            
-        </div>
-    </div>
-    <div class="row">
-        <div class = "col">
-            <label for="lastName" class="form-label">Last Name</label>
-            <input type="text" name="lastName" id="lastName" class="form-control" formControlName="lastName">
-            <div class="form-text text-danger" *ngIf="LastName.errors?.['required'] && LastName.touched">Last Name is required </div>
+            <label for="name" class="form-label">Name</label>
+            <input type="text" name="name" id="name" class="form-control" formControlName="name">
+            <div class="form-text text-danger" *ngIf="name.errors?.['required'] && name.touched"> Name is required </div>
         </div>
     </div>
     <div class="row">
@@ -32,16 +24,6 @@
             <input type="email" name="email" id="email" class="form-control" formControlName="email">
             <div class="form-text text-danger" *ngIf="Email.errors?.['required'] && Email.touched">Email ID is required</div>
             <div class="form-text text-danger" *ngIf="Email.errors?.['email'] && Email.touched">Invalid Email ID </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class = "col">
-            <label for="mobile" class="form-label">Phone Number</label>
-            <input type="text" name="mobile" id="mobile" class="form-control" formControlName="mobile">
-            <div class="form-text text-danger" *ngIf="Mobile.errors?.['required'] && Mobile.touched">Phone Number is required </div>
-            <div class="form-text text-danger" *ngIf="Mobile.errors?.['pattern'] && Mobile.touched">Phone Number is invalid </div>
-            <div class="form-text text-danger" *ngIf="Mobile.errors?.['minlength'] && Mobile.touched">Phone Number is shorter than expected</div>
-            <div class="form-text text-danger" *ngIf="Mobile.errors?.['maxlength'] && Mobile.touched">Phone Number is longer than expected</div>
         </div>
     </div>
     <div class="row">
