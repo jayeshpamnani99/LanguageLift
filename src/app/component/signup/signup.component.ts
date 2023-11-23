@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { FormGroup,Validators } from '@angular/forms';
 import { SignupService } from 'src/app/services/signup.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -11,7 +12,7 @@ import { SignupService } from 'src/app/services/signup.service';
 })
 export class SignupComponent {
 
-  constructor(private signupService:SignupService){}
+  constructor(private signupService:SignupService,private router:Router){}
   errorMessage :String = 'none';
   displayMessage:String="";
   isAccCreated:Boolean=false;
@@ -27,31 +28,40 @@ export class SignupComponent {
     confirmPassword: new FormControl("",Validators.required),
   });
 
+  login(){
+    this.router.navigateByUrl("/login");
+    
+  }
+
   signUpSubmitted(){
     console.log(this.registerForm)
     if (this.Password.value==this.ConfirmPassword.value){
       console.log(this.registerForm)
-      this.signupService.registerUser(
-        [
-          this.registerForm.value.name||'',
-          this.registerForm.value.email||'',
-          this.registerForm.value.password||''
-        ]
-      ).subscribe(res=>{
-        if(res=="True"){
-          this.displayMessage="Account Created Successfully"
-          this.isAccCreated=true
-        }
-        else if(res="False"){
-          this.displayMessage="Account Already Exisists"
-        }
-        else{
-          this.displayMessage="Something Went Wrong"
-        }
-      })
+      alert("Successfully Registered")
+    this.router.navigateByUrl("/login");
+      // this.signupService.registerUser(
+      //   [
+      //     this.registerForm.value.name||'',
+      //     this.registerForm.value.email||'',
+      //     this.registerForm.value.password||''
+      //   ]
+      // ).subscribe(res=>{
+      //   if(res=="True"){
+      //     this.displayMessage="Account Created Successfully"
+      //     this.isAccCreated=true
+      //   }
+      //   else if(res="False"){
+      //     this.displayMessage="Account Already Exisists"
+      //   }
+      //   else{
+      //     this.displayMessage="Something Went Wrong"
+      //   }
+      // })
     }
     else{
-      this.errorMessage="inline"
+      alert("Password and Confirm Password should be same");
+      this.Password.setValue("");
+      this.ConfirmPassword.setValue("");
     }
   }
 
@@ -67,4 +77,5 @@ export class SignupComponent {
   get ConfirmPassword(){
     return this.registerForm.get("confirmPassword") as FormControl
   }
+
 }
