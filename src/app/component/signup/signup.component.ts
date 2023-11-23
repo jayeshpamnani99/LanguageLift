@@ -39,24 +39,24 @@ export class SignupComponent {
       console.log(this.registerForm)
       alert("Successfully Registered")
     this.router.navigateByUrl("/login");
-      // this.signupService.registerUser(
-      //   [
-      //     this.registerForm.value.name||'',
-      //     this.registerForm.value.email||'',
-      //     this.registerForm.value.password||''
-      //   ]
-      // ).subscribe(res=>{
-      //   if(res=="True"){
-      //     this.displayMessage="Account Created Successfully"
-      //     this.isAccCreated=true
-      //   }
-      //   else if(res="False"){
-      //     this.displayMessage="Account Already Exisists"
-      //   }
-      //   else{
-      //     this.displayMessage="Something Went Wrong"
-      //   }
-      // })
+      this.signupService.registerUser(
+        [
+          this.registerForm.value.name||'',
+          this.registerForm.value.email||'',
+          this.registerForm.value.password||''
+        ]
+      ).subscribe(res=>{
+        if(res=="True"){
+          this.displayMessage="Account Created Successfully"
+          this.isAccCreated=true
+        }
+        else if(res="False"){
+          this.displayMessage="Account Already Exisists"
+        }
+        else{
+          this.displayMessage="Something Went Wrong"
+        }
+      })
     }
     else{
       alert("Password and Confirm Password should be same");

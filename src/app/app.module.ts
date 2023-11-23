@@ -9,13 +9,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SignupService } from './services/signup.service';
 import { LoginComponent } from './component/login/login.component';
 import { DashboardInstructorComponent } from './dashboard-instructor/dashboard-instructor.component';
+import { CourseDetailsComponent } from './course-details/course-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignupComponent,
     LoginComponent,
-    DashboardInstructorComponent
+    DashboardInstructorComponent,
+    CourseDetailsComponent
   ],
   imports: [
     BrowserModule,

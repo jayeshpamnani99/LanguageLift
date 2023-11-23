@@ -1,0 +1,8 @@
+<!-- src/app/course-details/course-details.component.html -->
+
+<div *ngIf="courseDetails">
+    <h2>{{ courseDetails.title }}</h2>
+    <p>{{ courseDetails.description }}</p>
+    <button type="login" class="btn btn-primary" (click)="enroll()" >Enroll</button>
+  </div>
+  

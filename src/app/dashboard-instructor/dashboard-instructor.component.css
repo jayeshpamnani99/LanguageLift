@@ -1,0 +1,33 @@
+/* src/app/course-catalog/course-catalog.component.css */
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; /* Align courses to the left */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    max-height: 400px; /* Set a maximum height for the container */
+    margin-bottom: 20px; /* Add some space at the bottom */
+  }
+  
+  .card {
+    flex: 0 0 calc(25% - 20px); /* 25% width with space between cards */
+    margin-right: 20px; /* Add space between columns */
+    margin-bottom: 20px; /* Add space between rows */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-header {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  .card-body {
+    padding: 10px;
+  }
+  

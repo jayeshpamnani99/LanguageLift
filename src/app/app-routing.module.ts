@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { SignupComponent } from './component/signup/signup.component';
 import { LoginComponent } from './component/login/login.component';
 import { DashboardInstructorComponent } from './dashboard-instructor/dashboard-instructor.component';
+import { CourseDetailsComponent } from './course-details/course-details.component';
 
 const routes: Routes = [{
   path:'signup',
@@ -16,6 +17,9 @@ const routes: Routes = [{
   path:'dashboard',
   component:DashboardInstructorComponent
 },
+{ 
+  path: 'course/:id', 
+  component: CourseDetailsComponent },
 {
   path:'',
   redirectTo:'/login',
