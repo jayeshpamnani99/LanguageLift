@@ -1,0 +1,19 @@
+<!-- week.component.html -->
+
+<table>
+    <thead>
+      <tr>
+        <th>Week number</th>
+        <th>Title</th>
+        <th>Module type</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let module of modules">
+        <td>{{ module.weekNumber }}</td>
+        <td><a [routerLink]="['/week', module.weekNumber]">{{ module.title }}</a></td>
+        <td>{{ module.moduleType }}</td>
+      </tr>
+    </tbody>
+  </table>
+  

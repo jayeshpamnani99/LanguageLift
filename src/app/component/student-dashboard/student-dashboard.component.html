@@ -1,0 +1,15 @@
+<!-- src/app/course-catalog/course-catalog.component.html -->
+
+<div class="scroll-container">
+    <div class="card-container">
+      <a routerLink="/student-course-view/{{ course.id }}" *ngFor="let course of courses" class="card">
+        <div class="card-header">
+          {{ course.title }}
+        </div>
+        <div class="card-body">
+          <p>{{ course.description }}</p>
+        </div>
+      </a>
+    </div>
+  </div>
+  

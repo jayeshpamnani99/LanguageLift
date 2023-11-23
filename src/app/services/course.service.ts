@@ -17,6 +17,16 @@ export class CourseService {
       // Add more courses as needed
   ];
 
+  modules:{} [] = [
+    new CourseModel(1,'Introduction to Angular', 'Learn the basics of Angular framework.'),
+    new CourseModel(2,'Introduction to Angular', 'Learn the basics of Angular framework.'),
+    new CourseModel(3,'Advanced JavaScript', 'Deep dive into JavaScript concepts and features.'),
+    new CourseModel(4,'Web Development with Angular', 'Build modern web applications with Angular.'),
+    new CourseModel(5,'Web Development with Angular', 'Build modern web applications with Angular.'),
+    new CourseModel(6,'Web Development with Angular', 'Build modern web applications with Angular.'),
+      // Add more courses as needed
+  ];
+
   getCourses(): CourseModel[] {
     return this.courses;
   }
@@ -36,4 +46,13 @@ export class CourseService {
   // getCourseById(id: number): Course | undefined {
   //   return this.courses.find(course => course.id === id);
   // }
+
+  getModules() {
+    // Assume this method returns an array of week data
+    return [
+      { weekNumber: 1, title: 'Week 1 Title', moduleType: 'Type A' },
+      { weekNumber: 2, title: 'Week 2 Title', moduleType: 'Type B' },
+      // Add more data as needed
+    ];
+  }
 }

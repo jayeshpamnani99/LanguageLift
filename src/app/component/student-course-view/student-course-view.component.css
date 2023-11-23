@@ -1,0 +1,31 @@
+/* week.component.css */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px; /* Adjust the margin as needed */
+  }
+  
+  th, td {
+    padding: 12px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f2f2f2; /* Light gray background for header */
+  }
+  
+  td {
+    border: 1px solid #ddd; /* Add borders to cells */
+  }
+  
+  td a {
+    text-decoration: none; /* Remove underline for links */
+    color: #333; /* Set link color */
+    font-weight: bold;
+  }
+  
+  td a:hover {
+    color: #0066cc; /* Change link color on hover */
+  }
+  
