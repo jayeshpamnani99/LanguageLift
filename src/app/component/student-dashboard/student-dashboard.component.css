@@ -1,33 +1,73 @@
-/* src/app/course-catalog/course-catalog.component.css */
+.course-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: -10px;
+}
+.student-dashboard {
+  background-color: #B4E6EA; /* Replace with the color you prefer */
+  padding: 40px; /* Add padding if needed */
+  min-height: 100vh; /* Make sure it covers the full height */
+  min-width: 100vw;
+}
+.course-card {
+  flex: 0 0 calc(33.333% - 20px); /* 33.333% width with space between cards */
+  margin: 10px;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-.card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start; /* Align courses to the left */
-    overflow-x: auto; /* Enable horizontal scrolling */
-    max-height: 400px; /* Set a maximum height for the container */
-    margin-bottom: 20px; /* Add some space at the bottom */
-  }
-  
-  .card {
-    flex: 0 0 calc(25% - 20px); /* 25% width with space between cards */
-    margin-right: 20px; /* Add space between columns */
-    margin-bottom: 20px; /* Add space between rows */
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .card-header {
-    background-color: #007BFF;
-    color: white;
-    padding: 10px;
-    text-align: center;
-    font-weight: bold;
-  }
-  
-  .card-body {
-    padding: 10px;
-  }
-  
+.course-card-header {
+  color: #21294F;
+  padding: 15px;
+  font-weight: 600;
+  position: relative;
+}
+
+.course-difficulty-tag {
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  background: #FAEFC6; 
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #21294F;
+  font-size: 10px;
+  font-weight: 400;
+}
+
+.course-card-body {
+  padding: 15px;
+}
+
+.course-description {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.course-duration, .course-level {
+  display: block;
+  margin-bottom: 5px;
+  color: #666;
+}
+
+.course-enroll-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #34BCCF;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.course-enroll-button:hover {
+  background-color: #6983DE; /* Darker blue on hover */
+}
