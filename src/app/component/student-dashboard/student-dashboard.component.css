@@ -22,6 +22,7 @@
   color: #21294F;
   padding: 15px;
   font-weight: 600;
+  font-size: 25px;
   position: relative;
 }
 
@@ -33,7 +34,7 @@
   padding: 5px 10px;
   border-radius: 5px;
   color: #21294F;
-  font-size: 10px;
+  font-size: 15px;
   font-weight: 400;
 }
 
@@ -70,4 +71,50 @@
 
 .course-enroll-button:hover {
   background-color: #6983DE; /* Darker blue on hover */
+}
+.nav-tabs {
+  border-bottom: 1px solid #ddd;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-tabs .nav-item {
+  margin-bottom: -1px;
+}
+
+.nav-tabs .nav-link {
+  border: 1px solid transparent;
+  border-radius: 0.25rem 0.25rem 0 0;
+  padding: 0.5rem 1rem;
+  background-color: #f8f9fa;
+  color: #0056b3;
+  margin-right: 2px;
+}
+
+.nav-tabs .nav-link:hover {
+  border-color: #e9ecef #e9ecef #dee2e6;
+  text-decoration: none;
+}
+
+.nav-tabs .nav-link.active {
+  color: #495057;
+  background-color: #fff;
+  border-color: #dee2e6 #dee2e6 #fff;
+}
+
+/* Content area for tab panes */
+.tab-content>.tab-pane {
+  display: none; /* Hide all tab content by default */
+}
+
+.tab-content>.active {
+  display: block; /* Show active tab content */
+}
+
+/* Add some padding for scrollable content */
+.scroll-container {
+  padding: 1rem;
+  border: 1px solid #dee2e6;
+  border-top: none;
+  margin-top: -1px;
 }

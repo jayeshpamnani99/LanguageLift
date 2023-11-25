@@ -10,17 +10,44 @@ import { CourseModel } from 'src/app/Models/courseModel';
 
 export class StudentDashboardComponent implements OnInit {
   courses: CourseModel[] = [];
+  enrolledCourses: CourseModel[] = [];
+  viewAllCourses: boolean = true; // To toggle between tabs
 
   constructor(private courseService: CourseService) {}
 
   ngOnInit() {
-    this.courseService.getCourses().subscribe(
+    this.loadAllCourses();
+  }
+
+  loadAllCourses() {
+    this.courseService.getAllCourses().subscribe(
       (courses: CourseModel[]) => {
         this.courses = courses;
       },
-      error => {
-        console.error('Error fetching courses:', error);
+      (      error: any) => {
+        console.error('Error fetching all courses:', error);
       }
     );
+  }
+
+  loadMyCourses() {
+    this.courseService.getMyCourses().subscribe(
+      (courses: CourseModel[]) => {
+        this.enrolledCourses = courses;
+      },
+      (      error: any) => {
+        console.error('Error fetching my enrolled courses:', error);
+      }
+    );
+  }
+
+  showAllCourses() {
+    this.viewAllCourses = true;
+    this.loadAllCourses();
+  }
+
+  showMyCourses() {
+    this.viewAllCourses = false;
+    this.loadMyCourses();
   }
 }
