@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { SignupService } from 'src/app/services/signup.service';
 import { SignupConfirmationDialogComponent } from '../signup-confirmation-dialog/signup-confirmation-dialog.component';
+import { LocalStorageService } from 'src/app/local-storage.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ import { SignupConfirmationDialogComponent } from '../signup-confirmation-dialog
 })
 export class LoginComponent {
 
-  constructor(private signupService:SignupService,private router:Router,public dialog: MatDialog){}
+  constructor(private signupService:SignupService,private router:Router,public dialog: MatDialog, localStorage:LocalStorageService){}
   login!: FormGroup;
 
   ngOnInit():void{
@@ -33,25 +34,6 @@ export class LoginComponent {
     this.router.navigateByUrl("/signup");
   }
 
-  // loginSubmit(){
-  //   this.signupService.loginUser(
-  //     [this.login.value.email||'',
-  //       this.login.value.password||''
-  //     ]
-  //   ).subscribe(res=>{
-      
-  //     if(res=="False"){
-  //       console.log("Invalid Credentials")
-  //     }
-  //     else{
-  //       console.log("login Successful");
-  //       this.isUserLoggedIn=true;
-  //       this.signupService.setToken("token");
-  //       this.router.navigateByUrl("/dashboard");
-  //     }
-  //   })
-  // }
-
   get Email(){
     return this.login.get("email") as FormControl
   }
@@ -64,10 +46,20 @@ export class LoginComponent {
         const formData = this.login.value;
         this.signupService.login(formData).subscribe(
           (response) => {
-            console.log('Signup successful:', response);
 
             if (response && response.message === "Successfully logged in!") {
-              this.router.navigateByUrl("/student-dashboard");
+              
+              localStorage.setItem("token",response.jwtToken);
+              localStorage.setItem("id",response.userDetails.id);
+              localStorage.setItem("role",response.userDetails.roleId);
+              console.log('localStorage',localStorage.getItem("token"));
+              if (response.userDetails.roleId==1){
+                this.router.navigateByUrl("/student-dashboard");
+              }
+              else{
+
+                // teacher dashboard
+              }
             } else {
               console.warn('Unexpected response status:', response.status);
             }

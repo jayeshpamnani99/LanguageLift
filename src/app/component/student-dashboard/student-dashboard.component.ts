@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CourseService } from 'src/app/services/course.service';
 import { CourseModel } from 'src/app/Models/courseModel';
+import { MatDialog } from '@angular/material/dialog';
+import { SignupConfirmationDialogComponent } from '../signup-confirmation-dialog/signup-confirmation-dialog.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-student-dashboard',
@@ -14,7 +17,7 @@ export class StudentDashboardComponent implements OnInit {
   viewAllCourses: boolean = true; // To toggle between tabs
   buttonType: string = 'Enroll';
 
-  constructor(private courseService: CourseService) {}
+  constructor(private courseService: CourseService, public dialog: MatDialog,private router:Router ) {}
 
   ngOnInit() {
     this.loadAllCourses();
@@ -61,6 +64,7 @@ export class StudentDashboardComponent implements OnInit {
     this.courseService.enrollCourse(courseId).subscribe(
       (response) => {
         console.log('Course enrolled successfully:', response);
+        this.openConfirmationDialog('Course enrolled successfully!','Confirmation',courseId);
       },
       (error) => {
         console.error('Error enrolling course:', error);
@@ -68,9 +72,22 @@ export class StudentDashboardComponent implements OnInit {
     );
     }
     else{
-
+      this.router.navigateByUrl('/student-course-view/' + courseId);
     }
 
 
+  }
+
+  openConfirmationDialog(message: string,title:string,id:number): void {
+    const dialogRef = this.dialog.open(SignupConfirmationDialogComponent, {
+      width: '250px',
+      data: { message ,buttonName:"View Course",title:title},
+      panelClass: 'custom-dialog-container', 
+    });
+  
+    dialogRef.afterClosed().subscribe(() => {
+      this.router.navigateByUrl('/student-course-view/' + id);
+      // You can perform any additional actions after the dialog is closed
+    });
   }
 }
