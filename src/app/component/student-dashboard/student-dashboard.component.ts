@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CourseService } from 'src/app/services/course.service';
+import { CourseModel } from 'src/app/Models/courseModel';
 
 @Component({
   selector: 'app-student-dashboard',
@@ -7,10 +8,19 @@ import { CourseService } from 'src/app/services/course.service';
   styleUrls: ['./student-dashboard.component.css']
 })
 
-export class StudentDashboardComponent {
+export class StudentDashboardComponent implements OnInit {
+  courses: CourseModel[] = [];
 
-  constructor(private courseservice: CourseService) { }
+  constructor(private courseService: CourseService) {}
 
-  courses = this.courseservice.getCourses();
-
+  ngOnInit() {
+    this.courseService.getCourses().subscribe(
+      (courses: CourseModel[]) => {
+        this.courses = courses;
+      },
+      error => {
+        console.error('Error fetching courses:', error);
+      }
+    );
+  }
 }
