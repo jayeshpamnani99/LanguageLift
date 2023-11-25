@@ -12,6 +12,8 @@ import { LoginComponent } from './component/login/login.component';
 import { CourseDetailsComponent } from './course-details/course-details.component';
 import { StudentCourseViewComponent } from './component/student-course-view/student-course-view.component';
 import { StudentDashboardComponent } from './component/student-dashboard/student-dashboard.component';
+import { SignupConfirmationDialogComponent } from './component/signup-confirmation-dialog/signup-confirmation-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -21,13 +23,15 @@ import { StudentDashboardComponent } from './component/student-dashboard/student
     // DashboardInstructorComponent,
     CourseDetailsComponent,
     StudentCourseViewComponent,
-    StudentDashboardComponent
+    StudentDashboardComponent,
+    SignupConfirmationDialogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule
 
   ],
   providers: [SignupService],

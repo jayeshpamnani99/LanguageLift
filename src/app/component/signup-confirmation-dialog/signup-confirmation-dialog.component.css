@@ -1,0 +1,16 @@
+/* styles.css or styles.scss */
+.custom-dialog-container {
+    transform: translate(50%, 50%) ; /* Important to override MatDialog's default styles */
+  }
+  /* my-custom-dialog.component.css or my-custom-dialog.component.scss */
+:host {
+    display: block;
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add a shadow for a subtle effect */
+    padding: 16px;
+    background-color: #fff; /* Optional: Set a background color */
+  }
+  

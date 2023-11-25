@@ -10,8 +10,11 @@ import { Observable, map } from 'rxjs';
 })
 export class CourseService {
 
+
   private allCoursesUrl = `${environment.apiBaseUrl}/getAllCourses`; 
   private myCoursesUrl = `${environment.apiBaseUrl}/getEnrolledCoursesByStuId`; 
+
+  private coursesUrl = 'http://35.171.189.199:8082/getAllCourses'; 
 
   private httpOptions = {
     headers: new HttpHeaders({
