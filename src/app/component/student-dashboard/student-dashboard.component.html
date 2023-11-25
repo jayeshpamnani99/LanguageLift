@@ -23,7 +23,7 @@
               <p class="course-description">{{ course.description }}</p>
               <div class="course-duration">Average Duration: {{ course.avgDuration }} hours</div>
               <div class="course-instructor">Instructor: {{ course.instructorDetails?.name }}</div>
-              <button class="course-enroll-button" [routerLink]="'/student-course-view/' + course.id">ENROLL</button>
+              <button class="course-enroll-button" [routerLink]="'/student-course-view/' + course.id" (click)="buttonClick(course.id)">{{buttonType}}</button>
             </div>
           </div>
         </div>

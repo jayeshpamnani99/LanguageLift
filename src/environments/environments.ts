@@ -1,5 +1,8 @@
 export const environment = {
     production: false,
-    apiBaseUrl: 'http://35.171.189.199:8082' // Development API URL
+    apiBaseUrl: 'http://3.92.127.22:', // Development API URL
+    umsPort: '8081',
+    emsPort: '8082',
+
   };
   

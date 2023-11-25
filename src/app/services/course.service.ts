@@ -10,11 +10,10 @@ import { Observable, map } from 'rxjs';
 })
 export class CourseService {
 
-
-  private allCoursesUrl = `${environment.apiBaseUrl}/getAllCourses`; 
-  private myCoursesUrl = `${environment.apiBaseUrl}/getEnrolledCoursesByStuId`; 
-
-  private coursesUrl = 'http://35.171.189.199:8082/getAllCourses'; 
+  emsUrl = `${environment.apiBaseUrl}${environment.emsPort}`;
+  private unenrolledCoursesUrl = this.emsUrl+`/getNotEnrolledCoursesByStuId`; 
+  private myCoursesUrl = this.emsUrl+`/getEnrolledCoursesByStuId`; 
+  private courseDetailsUrl = this.emsUrl+`/getCourseModuleDetails`;
 
   private httpOptions = {
     headers: new HttpHeaders({
@@ -24,32 +23,31 @@ export class CourseService {
 
   constructor(private http: HttpClient) {}
 
-  getAllCourses(): Observable<CourseModel[]> {
-    return this.http.get<CourseModel[]>(this.allCoursesUrl, this.httpOptions);
+  getUnenrolledCourses(): Observable<any> {
+    console.log(this.http.get<CourseModel[]>(this.unenrolledCoursesUrl, this.httpOptions));
+    return this.http.get<any>(this.unenrolledCoursesUrl, this.httpOptions);
   }
 
-  getMyCourses(): Observable<CourseModel[]> {
-    return this.http.get<CourseModel[]>(this.myCoursesUrl, this.httpOptions);
+  getMyCourses(): Observable<any> {
+    console.log(this.http.get<CourseModel[]>(this.myCoursesUrl, this.httpOptions));
+    return this.http.get<any>(this.myCoursesUrl, this.httpOptions);
   }
-  // getCourses(): Observable<CourseModel[]> {
-  //   return this.http.get<any[]>(this.coursesUrl, this.httpOptions).pipe(
-  //     map((response: any[]) => response.map((courseData: any) => new CourseModel(courseData)))
+
+  // getCourseById(id: number): Observable<CourseModel | undefined> {
+  //   return this.getUnenrolledCourses().pipe(
+  //     map(courses => courses.find(course => course.id === id))
   //   );
   // }
 
-
-  getCourseById(id: number): Observable<CourseModel | undefined> {
-    return this.getAllCourses().pipe(
-      map(courses => courses.find(course => course.id === id))
-    );
+  getCourseModuleDetails(courseId: number): Observable<any> {
+    const url = `${this.courseDetailsUrl}?courseId=${courseId}`;
+    return this.http.get<any>(url, this.httpOptions);
   }
 
-  getModules() {
-    // Assume this method returns an array of week data
-    return [
-      { weekNumber: 1, title: 'Week 1 Title', moduleType: 'Type A' },
-      { weekNumber: 2, title: 'Week 2 Title', moduleType: 'Type B' },
-      // Add more data as needed
-    ];
+  enrollCourse(courseId: number): Observable<any> {
+    const url = `${this.emsUrl}/enroll?courseId=${courseId}`;
+    // enroll?courseId=2'
+    console.log(url);
+    return this.http.get<any>(url, this.httpOptions);
   }
 }

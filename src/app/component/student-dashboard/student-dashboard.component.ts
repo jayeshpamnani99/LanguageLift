@@ -12,6 +12,7 @@ export class StudentDashboardComponent implements OnInit {
   courses: CourseModel[] = [];
   enrolledCourses: CourseModel[] = [];
   viewAllCourses: boolean = true; // To toggle between tabs
+  buttonType: string = 'Enroll';
 
   constructor(private courseService: CourseService) {}
 
@@ -20,9 +21,10 @@ export class StudentDashboardComponent implements OnInit {
   }
 
   loadAllCourses() {
-    this.courseService.getAllCourses().subscribe(
-      (courses: CourseModel[]) => {
-        this.courses = courses;
+    this.courseService.getUnenrolledCourses().subscribe(
+      (courses) => {
+        console.log(courses);
+        this.courses = courses.courseDetails;
       },
       (      error: any) => {
         console.error('Error fetching all courses:', error);
@@ -32,8 +34,9 @@ export class StudentDashboardComponent implements OnInit {
 
   loadMyCourses() {
     this.courseService.getMyCourses().subscribe(
-      (courses: CourseModel[]) => {
-        this.enrolledCourses = courses;
+      (courses) => {
+        console.log(courses);
+        this.courses = courses.courseDetails;
       },
       (      error: any) => {
         console.error('Error fetching my enrolled courses:', error);
@@ -44,10 +47,30 @@ export class StudentDashboardComponent implements OnInit {
   showAllCourses() {
     this.viewAllCourses = true;
     this.loadAllCourses();
+    this.buttonType='Enroll';
   }
 
   showMyCourses() {
-    this.viewAllCourses = false;
+    this.viewAllCourses = true;
     this.loadMyCourses();
+    this.buttonType='View this Course';
+  }
+
+  buttonClick(courseId: any) {
+    if (this.buttonType=='Enroll'){
+    this.courseService.enrollCourse(courseId).subscribe(
+      (response) => {
+        console.log('Course enrolled successfully:', response);
+      },
+      (error) => {
+        console.error('Error enrolling course:', error);
+      }
+    );
+    }
+    else{
+
+    }
+
+
   }
 }

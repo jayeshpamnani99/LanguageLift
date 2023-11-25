@@ -1,15 +1,57 @@
+/* src/app/student-dashboard/student-dashboard.component.css */
+
 .course-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   margin: -10px;
 }
+
 .student-dashboard {
   background-color: #B4E6EA; /* Replace with the color you prefer */
-  padding: 40px; /* Add padding if needed */
+  /* padding: 40px; */
+   /* Add padding if needed */
+  /* width: 80%; */
+  margin: auto;
   min-height: 100vh; /* Make sure it covers the full height */
   min-width: 100vw;
 }
+
+/* Tab Links */
+.nav-tabs {
+  margin-top: 20px;
+}
+
+.nav-link {
+  cursor: pointer;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px 5px 0 0;
+  background-color: #f8f9fa;
+}
+
+.nav-link.active {
+  background-color: #fff;
+}
+
+/* Tab Content */
+.tab-content {
+  border: 1px solid #ddd;
+  /* border-radius: 0 0 5px 0px; */
+  padding: 15px;
+}
+
+/* Course Cards */
+.scroll-container {
+  max-height: 400px; /* Adjust as needed */
+  overflow-y: auto;
+}
+
+.course-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .course-card {
   flex: 0 0 calc(33.333% - 20px); /* 33.333% width with space between cards */
   margin: 10px;
@@ -26,95 +68,38 @@
   position: relative;
 }
 
+
 .course-difficulty-tag {
-  position: absolute;
-  top: -10px;
-  right: 10px;
-  background: #FAEFC6; 
-  padding: 5px 10px;
-  border-radius: 5px;
-  color: #21294F;
-  font-size: 15px;
-  font-weight: 400;
+  margin-top: 5px;
+  background-color: #28a745;
+  color: #fff;
+  padding: 5px;
+  border-radius: 3px;
+  display: inline-block;
 }
 
 .course-card-body {
-  padding: 15px;
+  padding: 10px;
 }
 
 .course-description {
-  font-size: 14px;
-  color: #333;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
-.course-duration, .course-level {
-  display: block;
+.course-duration,
+.course-instructor {
   margin-bottom: 5px;
-  color: #666;
 }
 
 .course-enroll-button {
-  display: block;
-  width: 100%;
-  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  padding: 8px 15px;
   border: none;
   border-radius: 5px;
-  background-color: #34BCCF;
-  color: white;
-  text-transform: uppercase;
-  font-weight: bold;
-  text-align: center;
   cursor: pointer;
-  margin-top: 10px;
 }
 
 .course-enroll-button:hover {
-  background-color: #6983DE; /* Darker blue on hover */
-}
-.nav-tabs {
-  border-bottom: 1px solid #ddd;
-  padding: 0;
-  margin: 0;
-}
-
-.nav-tabs .nav-item {
-  margin-bottom: -1px;
-}
-
-.nav-tabs .nav-link {
-  border: 1px solid transparent;
-  border-radius: 0.25rem 0.25rem 0 0;
-  padding: 0.5rem 1rem;
-  background-color: #f8f9fa;
-  color: #0056b3;
-  margin-right: 2px;
-}
-
-.nav-tabs .nav-link:hover {
-  border-color: #e9ecef #e9ecef #dee2e6;
-  text-decoration: none;
-}
-
-.nav-tabs .nav-link.active {
-  color: #495057;
-  background-color: #fff;
-  border-color: #dee2e6 #dee2e6 #fff;
-}
-
-/* Content area for tab panes */
-.tab-content>.tab-pane {
-  display: none; /* Hide all tab content by default */
-}
-
-.tab-content>.active {
-  display: block; /* Show active tab content */
-}
-
-/* Add some padding for scrollable content */
-.scroll-container {
-  padding: 1rem;
-  border: 1px solid #dee2e6;
-  border-top: none;
-  margin-top: -1px;
+  background-color: #0056b3;
 }
