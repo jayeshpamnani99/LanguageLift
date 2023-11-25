@@ -9,7 +9,7 @@ import { Observable, map } from 'rxjs';
 })
 export class CourseService {
 
-  private coursesUrl = 'http://54.144.7.68:8082/getAllCourses'; 
+  private coursesUrl = 'http://35.171.189.199:8082/getAllCourses'; 
   private httpOptions = {
     headers: new HttpHeaders({
       'Authorization': 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI1IiwiZXhwIjoxNzAxNDg0NzcxLCJuYW1lIjoiTWFuYXYgR3VwdGEiLCJlbWFpbCI6Im1hbmF2Z0B1bWQuZWR1In0.-b-hMftxrzmrl8-dTTcjZUASqnALu2IeHt8B3w8eCD949OP8ZSgv1be2NPchLshQ0-Mk5AAlvy5uyTLfaMcNrA' // Replace with your token
