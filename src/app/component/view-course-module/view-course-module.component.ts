@@ -34,7 +34,7 @@ export class ViewCourseModuleComponent {
         console.log(this.moduleDetails);
         if (this.moduleDetails==null || this.moduleDetails==undefined||this.moduleDetails==""||(Object.keys(this.moduleDetails).length === 0)){
           this.openDialog('Not enrolled in this course','Confirmation',0);
-          this.router.navigateByUrl("/login");
+          this.router.navigateByUrl("/student-dashboard");
         }
 
       },
@@ -57,11 +57,4 @@ export class ViewCourseModuleComponent {
       this.router.navigateByUrl("/student-dashboard");
     });
   }
-
-
-
-
-
-
-
 }

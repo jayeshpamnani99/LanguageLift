@@ -8,6 +8,7 @@ import { StudentDashboardComponent } from './component/student-dashboard/student
 import { StudentCourseViewComponent } from './component/student-course-view/student-course-view.component';
 import { ViewCourseModuleComponent } from './component/view-course-module/view-course-module.component';
 import { ViewQuizModuleComponent } from './component/view-quiz-module/view-quiz-module.component';
+import { TeacherDashboardComponent } from './component/teacher-dashboard/teacher-dashboard.component';
 
 const routes: Routes = [{
   path:'signup',
@@ -44,6 +45,8 @@ const routes: Routes = [{
     path: 'quizView/:id',
     component: ViewQuizModuleComponent
   },
+  {path:'',
+component:TeacherDashboardComponent},
 {
   path:'',
   redirectTo:'/login',

@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CourseModel } from 'src/app/Models/courseModel';
 import { CourseService } from 'src/app/services/course.service';
+import { SignupConfirmationDialogComponent } from '../signup-confirmation-dialog/signup-confirmation-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-student-course-view',
@@ -16,7 +18,8 @@ export class StudentCourseViewComponent implements OnInit {
   constructor(
     private courseService: CourseService,
     private route: ActivatedRoute,
-    private router:Router
+    private router:Router,
+    private dialog: MatDialog,
   ) {}
 
   ngOnInit(): void {
@@ -27,10 +30,11 @@ export class StudentCourseViewComponent implements OnInit {
         console.log(courses);
         courses = courses.courseDetails;
         this.courseIdDetails = courses.find((course: CourseModel) => course.id === courseId);
-        if (courseId) {
-          console.log(courseId);
+        if (!(this.courseIdDetails==undefined || this.courseIdDetails==""||(Object.keys(this.courseIdDetails).length === 0))) {
+          console.log(this.courseIdDetails);
         } else {
           this.router.navigateByUrl("/student-dashboard");
+          this.openDialog('You are not enrolled in that course','Enroll in that Course',0);
           console.log("You are not enrolled in that course");
         }
       },
@@ -62,5 +66,17 @@ export class StudentCourseViewComponent implements OnInit {
       this.router.navigateByUrl("/quizView/"+moduleId);
     }
 
+  }
+
+
+  openDialog(message: string,title:string,id:number): void {
+    const dialogRef = this.dialog.open(SignupConfirmationDialogComponent, {
+      width: '250px',
+      data: { message ,buttonName:"Go to dashboard",title:title},
+      panelClass: 'custom-dialog-container', 
+    });
+  
+    dialogRef.afterClosed().subscribe(() => {
+    });
   }
 }

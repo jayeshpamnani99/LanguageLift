@@ -22,7 +22,6 @@ export class LoginComponent {
       email: new FormControl("",[ Validators.required]),
     password: new FormControl("",[Validators.required]),
     });
-    
   }
 
 
@@ -57,7 +56,7 @@ export class LoginComponent {
                 this.router.navigateByUrl("/student-dashboard");
               }
               else{
-
+                this.router.navigateByUrl("/teacher-dashboard");
                 // teacher dashboard
               }
             } else {

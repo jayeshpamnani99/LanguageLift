@@ -16,6 +16,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ViewCourseModuleComponent } from './component/view-course-module/view-course-module.component';
 import { ViewQuizModuleComponent } from './component/view-quiz-module/view-quiz-module.component';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+import { TeacherDashboardComponent } from './component/teacher-dashboard/teacher-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
     SignupConfirmationDialogComponent,
     ViewCourseModuleComponent,
     ViewQuizModuleComponent,
+    TeacherDashboardComponent,
     
   ],
   imports: [

@@ -23,7 +23,6 @@ export class CourseService {
   constructor(private http: HttpClient,private localStorageService:LocalStorageService) {}
 
   getHttpOptionsWithToken() {
-    console.log('gere '+this.localStorageService.get('token'));
     return {headers: new HttpHeaders({
       'Authorization': this.localStorageService.get('token')
     })}
