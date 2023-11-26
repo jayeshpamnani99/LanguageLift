@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Route } from '@angular/router';
 import { ModuleModel } from 'src/app/Models/moduleModel';
 import { CourseService } from 'src/app/services/course.service';
+import { SignupConfirmationDialogComponent } from '../signup-confirmation-dialog/signup-confirmation-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,12 +17,11 @@ export class ViewCourseModuleComponent {
   constructor(
     private courseService: CourseService,
     private route: ActivatedRoute,
+    public dialog: MatDialog,
+    private router:Router,
     ) { }
 
     moduleDetails: any;
-
-
-    pdfUrl = 'file:///C:/Users/anjan/Downloads/Exercise_7%20(2).pdf';
     
 
   ngOnInit(): void {
@@ -30,12 +32,30 @@ export class ViewCourseModuleComponent {
       details => {
         this.moduleDetails = details;
         console.log(this.moduleDetails);
+        if (this.moduleDetails==null || this.moduleDetails==undefined||this.moduleDetails==""||(Object.keys(this.moduleDetails).length === 0)){
+          this.openDialog('Not enrolled in this course','Confirmation',0);
+          this.router.navigateByUrl("/login");
+        }
+
       },
       error => {
         console.error('Error fetching module details:', error);
+        this.openDialog('Error fetching module details:','Error',0);
       }      
     );
   
+  }
+
+  openDialog(message: string,title:string,id:number): void {
+    const dialogRef = this.dialog.open(SignupConfirmationDialogComponent, {
+      width: '250px',
+      data: { message ,buttonName:"View Course",title:title},
+      panelClass: 'custom-dialog-container', 
+    });
+  
+    dialogRef.afterClosed().subscribe(() => {
+      this.router.navigateByUrl("/student-dashboard");
+    });
   }
 
 
