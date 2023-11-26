@@ -102,6 +102,4 @@ export class StudentDashboardComponent implements OnInit {
     dialogRef.afterClosed().subscribe(() => {
     });
   }
-
-
 }

@@ -17,6 +17,7 @@ export class CourseService {
   private unenrolledCoursesUrl = this.emsUrl+`/getNotEnrolledCoursesByStuId`; 
   private myCoursesUrl = this.emsUrl+`/getEnrolledCoursesByStuId`; 
   private courseDetailsUrl = this.ccmsUrl+`/getCourseModuleDetails`;
+  private moduleDetailsUrl = this.ccmsUrl+`/getModuleDetailsFull`;
   private httpOptions :any;
 
   constructor(private http: HttpClient,private localStorageService:LocalStorageService) {}
@@ -75,6 +76,12 @@ export class CourseService {
     const url = `${this.emsUrl}/enroll?courseId=${courseId}`;
     // enroll?courseId=2'
     console.log(url);
+    return this.http.get<any>(url, this.httpOptions);
+  }
+
+  getModuleDetailsFull(moduleId: number): Observable<any> {
+    this.httpOptions = this.getHttpOptionsWithToken();
+    const url = `${this.moduleDetailsUrl}?courseModuleId=${moduleId}`;
     return this.http.get<any>(url, this.httpOptions);
   }
 }

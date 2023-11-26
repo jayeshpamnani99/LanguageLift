@@ -6,6 +6,8 @@ import { LoginComponent } from './component/login/login.component';
 import { CourseDetailsComponent } from './course-details/course-details.component';
 import { StudentDashboardComponent } from './component/student-dashboard/student-dashboard.component';
 import { StudentCourseViewComponent } from './component/student-course-view/student-course-view.component';
+import { ViewCourseModuleComponent } from './component/view-course-module/view-course-module.component';
+import { ViewQuizModuleComponent } from './component/view-quiz-module/view-quiz-module.component';
 
 const routes: Routes = [{
   path:'signup',
@@ -33,6 +35,14 @@ const routes: Routes = [{
   {
     path: 'student-course-view/:id',
     component: StudentCourseViewComponent
+  },
+  {
+    path: 'moduleView/:id',
+    component: ViewCourseModuleComponent
+  },
+  {
+    path: 'quizView/:id',
+    component: ViewQuizModuleComponent
   },
 {
   path:'',

@@ -24,7 +24,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let module of courseModulesDetails"  (click)="onModuleClick(module.id, module.contentUrl)">
+    <tr *ngFor="let module of courseModulesDetails"  (click)="onModuleClick(module.id, module.contentUrl,module.moduleType.id)">
       <td>{{ module.serialNumber }}</td>
       <td>{{ module.title }}</td>
       <td>{{ module.moduleType.type }}</td>

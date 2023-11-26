@@ -34,7 +34,7 @@ export class StudentCourseViewComponent implements OnInit {
           console.log("You are not enrolled in that course");
         }
       },
-      (      error: any) => {
+      (error: any) => {
         this.router.navigateByUrl("/student-dashboard");
         console.error('Error fetching my enrolled courses:', error);
       }
@@ -53,7 +53,14 @@ export class StudentCourseViewComponent implements OnInit {
     );
   }
 
-  onModuleClick(moduleId: number,moduleContentUrl:string) {
+  onModuleClick(moduleId: number,moduleContentUrl:string,moduleTypeId:number) {
     console.log('Clicked module:', moduleId);    
+    if (moduleTypeId==1){
+      this.router.navigateByUrl("/moduleView/"+moduleId);
+    }
+    else{
+      this.router.navigateByUrl("/quizView/"+moduleId);
+    }
+
   }
 }

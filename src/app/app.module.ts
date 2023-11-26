@@ -13,6 +13,9 @@ import { StudentCourseViewComponent } from './component/student-course-view/stud
 import { StudentDashboardComponent } from './component/student-dashboard/student-dashboard.component';
 import { SignupConfirmationDialogComponent } from './component/signup-confirmation-dialog/signup-confirmation-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { ViewCourseModuleComponent } from './component/view-course-module/view-course-module.component';
+import { ViewQuizModuleComponent } from './component/view-quiz-module/view-quiz-module.component';
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 
 @NgModule({
   declarations: [
@@ -23,14 +26,18 @@ import { MatDialogModule } from '@angular/material/dialog';
     CourseDetailsComponent,
     StudentCourseViewComponent,
     StudentDashboardComponent,
-    SignupConfirmationDialogComponent
+    SignupConfirmationDialogComponent,
+    ViewCourseModuleComponent,
+    ViewQuizModuleComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatDialogModule
+    MatDialogModule,
+    NgxExtendedPdfViewerModule,
 
   ],
   providers: [SignupService],
