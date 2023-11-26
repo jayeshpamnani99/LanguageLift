@@ -9,6 +9,7 @@ import { StudentCourseViewComponent } from './component/student-course-view/stud
 import { ViewCourseModuleComponent } from './component/view-course-module/view-course-module.component';
 import { ViewQuizModuleComponent } from './component/view-quiz-module/view-quiz-module.component';
 import { TeacherDashboardComponent } from './component/teacher-dashboard/teacher-dashboard.component';
+import { TeacherCourseViewComponent } from './component/teacher-course-view/teacher-course-view.component';
 
 const routes: Routes = [{
   path:'signup',
@@ -49,7 +50,7 @@ const routes: Routes = [{
   component:TeacherDashboardComponent},
   {
     path: 'teacher-course-view/:id', 
-    component: CourseDetailsComponent 
+    component: TeacherCourseViewComponent
   },
 {
   path:'',
