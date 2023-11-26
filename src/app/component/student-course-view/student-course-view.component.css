@@ -6,7 +6,7 @@
 }
 
 .course-header {
-  margin-top: -200px; ;
+ 
   text-align: left; /* Center the header content */
   padding: 4em; /* Adjust the padding to match the design */
   background-color: #B4E6EA; /* Use the background color similar to your design */
@@ -69,3 +69,28 @@
   color: #666; /* Paragraph text color */
   line-height: 1.6; /* Line height for readability */
 }
+
+
+
+/* styles.css */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  background-color: #B4E6EA; /* Match the background color of the course header */
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+

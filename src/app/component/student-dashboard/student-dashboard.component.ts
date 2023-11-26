@@ -30,6 +30,8 @@ export class StudentDashboardComponent implements OnInit {
         this.courses = courses.courseDetails;
       },
       (      error: any) => {
+        this.openCDialog('Please login to view all courses!','Confirmation',0);
+        this.router.navigateByUrl("/login");
         console.error('Error fetching all courses:', error);
       }
     );
@@ -90,4 +92,18 @@ export class StudentDashboardComponent implements OnInit {
       // You can perform any additional actions after the dialog is closed
     });
   }
+  openCDialog(message: string,title:string,id:number): void {
+    const dialogRef = this.dialog.open(SignupConfirmationDialogComponent, {
+      width: '250px',
+      data: { message ,buttonName:"View Course",title:title},
+      panelClass: 'custom-dialog-container', 
+    });
+  
+    dialogRef.afterClosed().subscribe(() => {
+      // this.router.navigateByUrl('/student-course-view/' + id);
+      // You can perform any additional actions after the dialog is closed
+    });
+  }
+
+
 }

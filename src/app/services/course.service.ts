@@ -12,9 +12,11 @@ import { LocalStorageService } from '../local-storage.service';
 export class CourseService {
 
   emsUrl = `${environment.apiBaseUrl}${environment.emsPort}`;
+
+  ccmsUrl = `${environment.apiBaseUrl}${environment.ccmsPort}`;
   private unenrolledCoursesUrl = this.emsUrl+`/getNotEnrolledCoursesByStuId`; 
   private myCoursesUrl = this.emsUrl+`/getEnrolledCoursesByStuId`; 
-  private courseDetailsUrl = this.emsUrl+`/getCourseModuleDetails`;
+  private courseDetailsUrl = this.ccmsUrl+`/getCourseModuleDetails`;
   private httpOptions :any;
 
   constructor(private http: HttpClient,private localStorageService:LocalStorageService) {}
@@ -41,11 +43,26 @@ export class CourseService {
     return this.http.get<any>(this.myCoursesUrl, this.httpOptions);
   }
 
-  // getCourseById(id: number): Observable<CourseModel | undefined> {
-  //   return this.getUnenrolledCourses().pipe(
-  //     map(courses => courses.find(course => course.id === id))
-  //   );
-  // }
+  getCourseById(id: number) {
+    this.getMyCourses().subscribe(
+      (courses) => {
+        console.log(courses);
+        courses = courses.courseDetails;
+        const courseId = courses.find((course: CourseModel) => course.id === id);
+        if (courseId) {
+          return courseId;
+        }
+        else {
+          return "You are not enrolled in that course";
+        }
+      },
+      (      error: any) => {
+        console.error('Error fetching my enrolled courses:', error);
+      }
+    );
+
+    
+  }
 
   getCourseModuleDetails(courseId: number): Observable<any> {
     this.httpOptions = this.getHttpOptionsWithToken();
