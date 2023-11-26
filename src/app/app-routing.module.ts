@@ -45,13 +45,18 @@ const routes: Routes = [{
     path: 'quizView/:id',
     component: ViewQuizModuleComponent
   },
-  {path:'',
-component:TeacherDashboardComponent},
+  {path:'teacher-dashboard',
+  component:TeacherDashboardComponent},
+  {
+    path: 'teacher-course-view/:id', 
+    component: CourseDetailsComponent 
+  },
 {
   path:'',
   redirectTo:'/login',
   pathMatch:'full'
 },
+
 {
   path:'**',
   redirectTo:'/login',

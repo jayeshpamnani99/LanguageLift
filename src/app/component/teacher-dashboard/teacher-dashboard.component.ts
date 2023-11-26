@@ -14,7 +14,7 @@ export class TeacherDashboardComponent {
   courses: CourseModel[] = [];
   enrolledCourses: CourseModel[] = [];
   viewAllCourses: boolean = true; // To toggle between tabs
-  buttonType: string = 'Enroll';
+  buttonType: string = 'View this Course';
 
   constructor(private courseService: CourseService, public dialog: MatDialog,private router:Router ) {}
 
@@ -23,7 +23,7 @@ export class TeacherDashboardComponent {
   }
 
   loadAllCourses() {
-    this.courseService.getUnenrolledCourses().subscribe(
+    this.courseService.getCoursesByTeacherId().subscribe(
       (courses) => {
         console.log(courses);
         this.courses = courses.courseDetails;
@@ -36,17 +36,7 @@ export class TeacherDashboardComponent {
     );
   }
 
-  loadMyCourses() {
-    this.courseService.getMyCourses().subscribe(
-      (courses) => {
-        console.log(courses);
-        this.courses = courses.courseDetails;
-      },
-      (      error: any) => {
-        console.error('Error fetching my enrolled courses:', error);
-      }
-    );
-  }
+  
 
   showAllCourses() {
     this.viewAllCourses = true;
@@ -54,43 +44,22 @@ export class TeacherDashboardComponent {
     this.buttonType='Enroll';
   }
 
-  showMyCourses() {
-    this.viewAllCourses = true;
-    this.loadMyCourses();
-    this.buttonType='View this Course';
-  }
 
   buttonClick(courseId: any) {
-    if (this.buttonType=='Enroll'){
-    this.courseService.enrollCourse(courseId).subscribe(
-      (response) => {
-        console.log('Course enrolled successfully:', response);
-        this.openConfirmationDialog('Course enrolled successfully!','Confirmation',courseId);
-      },
-      (error) => {
-        console.error('Error enrolling course:', error);
-      }
-    );
-    }
-    else{
-      this.router.navigateByUrl('/student-course-view/' + courseId);
-    }
-
-
+      this.router.navigateByUrl('/teacher-course-view/' + courseId);
   }
 
-  openConfirmationDialog(message: string,title:string,id:number): void {
-    const dialogRef = this.dialog.open(SignupConfirmationDialogComponent, {
-      width: '250px',
-      data: { message ,buttonName:"View Course",title:title},
-      panelClass: 'custom-dialog-container', 
-    });
+  // openConfirmationDialog(message: string,title:string,id:number): void {
+  //   const dialogRef = this.dialog.open(SignupConfirmationDialogComponent, {
+  //     width: '250px',
+  //     data: { message ,buttonName:"View Course",title:title},
+  //     panelClass: 'custom-dialog-container', 
+  //   });
   
-    dialogRef.afterClosed().subscribe(() => {
-      this.router.navigateByUrl('/student-course-view/' + id);
-      // You can perform any additional actions after the dialog is closed
-    });
-  }
+  //   dialogRef.afterClosed().subscribe(() => {
+  //     this.router.navigateByUrl('/student-course-view/' + id);
+  //   });
+  // }
   openDialog(message: string,title:string,id:number): void {
     const dialogRef = this.dialog.open(SignupConfirmationDialogComponent, {
       width: '250px',

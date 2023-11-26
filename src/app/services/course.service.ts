@@ -28,8 +28,6 @@ export class CourseService {
     })}
   }
 
-  
-
   getUnenrolledCourses(): Observable<any> {
     this.httpOptions = this.getHttpOptionsWithToken();
     console.log(this.httpOptions)
@@ -60,8 +58,6 @@ export class CourseService {
         console.error('Error fetching my enrolled courses:', error);
       }
     );
-
-    
   }
 
   getCourseModuleDetails(courseId: number): Observable<any> {
@@ -78,9 +74,17 @@ export class CourseService {
     return this.http.get<any>(url, this.httpOptions);
   }
 
+  getCoursesByTeacherId(): Observable<any> {
+    this.httpOptions = this.getHttpOptionsWithToken();
+    const url = `${this.emsUrl}/getEnrolledCoursesByInstructorId`;
+    return this.http.get<any>(url, this.httpOptions);
+  }
+
   getModuleDetailsFull(moduleId: number): Observable<any> {
     this.httpOptions = this.getHttpOptionsWithToken();
     const url = `${this.moduleDetailsUrl}?courseModuleId=${moduleId}`;
     return this.http.get<any>(url, this.httpOptions);
   }
+
+  
 }

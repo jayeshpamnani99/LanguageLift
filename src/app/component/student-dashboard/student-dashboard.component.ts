@@ -4,6 +4,7 @@ import { CourseModel } from 'src/app/Models/courseModel';
 import { MatDialog } from '@angular/material/dialog';
 import { SignupConfirmationDialogComponent } from '../signup-confirmation-dialog/signup-confirmation-dialog.component';
 import { Router } from '@angular/router';
+import { LocalStorageService } from 'src/app/local-storage.service';
 
 @Component({
   selector: 'app-student-dashboard',
@@ -17,9 +18,19 @@ export class StudentDashboardComponent implements OnInit {
   viewAllCourses: boolean = true; // To toggle between tabs
   buttonType: string = 'Enroll';
 
-  constructor(private courseService: CourseService, public dialog: MatDialog,private router:Router ) {}
+  constructor(private courseService: CourseService, public dialog: MatDialog,private router:Router ,private localstorage:LocalStorageService) {}
 
+  
   ngOnInit() {
+    
+    if (this.localstorage.get('token')==null){
+      this.openDialog('Please login to view all courses!','Not Logged in',0,'login');
+      this.router.navigateByUrl("/login");
+    }
+    else if (this.localstorage.get('role')==2){
+      this.openDialog('Logged in as teacher','You do not have permission to view the student dashboard',0,'teacher-dashboard');
+      this.router.navigateByUrl("/teacher-dashboard");
+    }
     this.loadAllCourses();
   }
 
@@ -30,7 +41,7 @@ export class StudentDashboardComponent implements OnInit {
         this.courses = courses.courseDetails;
       },
       (      error: any) => {
-        this.openDialog('Please login to view all courses!','Confirmation',0);
+        this.openDialog('Please login to view all courses!','Not Logged in',0,'login');
         this.router.navigateByUrl("/login");
         console.error('Error fetching all courses:', error);
       }
@@ -92,10 +103,10 @@ export class StudentDashboardComponent implements OnInit {
       // You can perform any additional actions after the dialog is closed
     });
   }
-  openDialog(message: string,title:string,id:number): void {
+  openDialog(message: string,title:string,id:number,buttonName:string): void {
     const dialogRef = this.dialog.open(SignupConfirmationDialogComponent, {
       width: '250px',
-      data: { message ,buttonName:"View Course",title:title},
+      data: { message ,buttonName,title:title},
       panelClass: 'custom-dialog-container', 
     });
   

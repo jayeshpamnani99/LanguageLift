@@ -1,97 +1,103 @@
-/* student-course-view.component.css */
-.course-view {
-    /* Ensure the font sizes, weights, and colors match your design */
-    margin-top: -30;
-    font-family: Arial, sans-serif;
+/* src/app/student-dashboard/student-dashboard.component.css */
+
+.course-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: -10px;
   }
   
-  .course-header {
-   
-    text-align: left; /* Center the header content */
-    padding: 4em; /* Adjust the padding to match the design */
-    background-color: #B4E6EA; /* Use the background color similar to your design */
-    min-height: 50vh; /* Make sure it covers the full height */
+  .student-dashboard {
+    background-color: #B4E6EA; /* Replace with the color you prefer */
+    margin: auto;
+    min-height: 100vh; /* Make sure it covers the full height */
     min-width: 100vw;
   }
   
-  .course-header h1 {
-    font-size: 3em; /* Large font size for the course title */
-    color: #333; /* Color for the course title */
-    margin-bottom: 0.5em; /* Spacing between title and description */
-  }
-  
-  .course-header p {
-    font-size: 1.5em; /* Adjust to match the design */
-    color: #666; /* Description text color */
-    margin-bottom: 1em; /* Spacing between description and meta information */
-  }
-  
-  .course-meta {
-    display: flex;
-    justify-content: left; /* Center the course meta information */
-    align-items: left; /* Align items vertically */
-    gap: 1em; /* Add space between meta items */
-    margin-bottom: 1em; /* Spacing below meta information */
-  }
-  
-  .course-meta span {
-    font-size: 1.2em; /* Size of the meta information text */
-    color: #444; /* Meta information text color */
-  }
-  
-  .enroll-button {
-    padding: 0.5em 1em; /* Padding inside the button */
-    background-color: #34BCCF; /* Button background color */
-    color: white; /* Button text color */
-    border: none; /* No border */
-    border-radius: 0.3em; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
-    font-size: 1em; /* Button text size */
-    transition: background-color 0.3s ease; /* Transition for a smooth color change */
-  }
-  
-  .enroll-button:hover {
-    background-color: #6983DE; /* Darker background color on hover */
-  }
-  
-  .course-modules {
-    padding: 2em; /* Adjust padding to match design */
-  }
-  
-  .course-modules h2 {
-    font-size: 2em; /* Size of module titles */
-    color: #333; /* Module title color */
-    margin-bottom: 0.5em; /* Space below module title */
-  }
-  
-  .course-modules p {
-    font-size: 1em; /* Paragraph text size */
-    color: #666; /* Paragraph text color */
-    line-height: 1.6; /* Line height for readability */
-  }
-  
-  
-  
-  /* styles.css */
-  table {
-    width: 100%;
-    border-collapse: collapse;
+  /* Tab Links */
+  .nav-tabs {
     margin-top: 20px;
   }
   
-  th, td {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
+  .nav-link {
+    cursor: pointer;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px 5px 0 0;
+    background-color: #f8f9fa;
   }
   
-  th {
-    background-color: #B4E6EA; /* Match the background color of the course header */
+  .nav-link.active {
+    background-color: #fff;
   }
   
-  tr:nth-child(even) {
-    background-color: #f9f9f9;
+  /* Tab Content */
+  .tab-content {
+    border: 1px solid #ddd;
+    /* border-radius: 0 0 5px 0px; */
+    padding: 15px;
+  }
+  
+  /* Course Cards */
+  .scroll-container {
+    max-height: 400px; /* Adjust as needed */
+    overflow-y: auto;
+  }
+  
+  .course-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .course-card {
+    flex: 0 0 calc(33.333% - 20px); /* 33.333% width with space between cards */
+    margin: 10px;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .course-card-header {
+    color: #21294F;
+    padding: 15px;
+    font-weight: 600;
+    font-size: 25px;
+    position: relative;
   }
   
   
+  .course-difficulty-tag {
+    margin-top: 5px;
+    background-color: #28a745;
+    color: #fff;
+    padding: 5px;
+    border-radius: 3px;
+    display: inline-block;
+  }
+  
+  .course-card-body {
+    padding: 10px;
+  }
+  
+  .course-description {
+    margin-bottom: 10px;
+  }
+  
+  .course-duration,
+  .course-instructor {
+    margin-bottom: 5px;
+  }
+  
+  .course-enroll-button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .course-enroll-button:hover {
+    background-color: #0056b3;
+  }
   
