@@ -113,4 +113,11 @@ export class StudentDashboardComponent implements OnInit {
     dialogRef.afterClosed().subscribe(() => {
     });
   }
+
+  signOut(){
+    this.localstorage.remove('token');
+    this.localstorage.remove('role');
+    this.localstorage.remove('id');
+    this.router.navigateByUrl("/login");
+  }
 }

@@ -5,6 +5,7 @@
   <nav class="nav nav-tabs">
     <a class="nav-link" [class.active]="viewAllCourses" (click)="showAllCourses()">All Courses</a>
     <a class="nav-link" [class.active]="!viewAllCourses" (click)="showMyCourses()">My Courses</a>
+    <a class="nav-link"  (click)="signOut()">Sign Out</a>
   </nav>
   <!-- Tab Content -->
   <div class="tab-content">

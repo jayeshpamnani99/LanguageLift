@@ -70,4 +70,9 @@ export class TeacherDashboardComponent {
     });
   }
 
+  signOut(){
+    localStorage.clear();
+    this.router.navigateByUrl("/login");
+  }
+
 }

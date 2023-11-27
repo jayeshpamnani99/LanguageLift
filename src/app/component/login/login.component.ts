@@ -22,6 +22,16 @@ export class LoginComponent {
       email: new FormControl("",[ Validators.required]),
     password: new FormControl("",[Validators.required]),
     });
+
+
+    if (localStorage.getItem("token") != null) {
+      this.isUserLoggedIn = true;
+      if (localStorage.getItem("role") == "1") {
+        this.router.navigateByUrl("/student-dashboard");
+      } else {
+        this.router.navigateByUrl("/teacher-dashboard");
+      }
+    }
   }
 
 
