@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute, Route } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { LocalStorageService } from 'src/app/local-storage.service';
 import { CourseService } from 'src/app/services/course.service';
 import { QuizServiceService } from 'src/app/services/quiz-service.service';
+import { SignupConfirmationDialogComponent } from '../signup-confirmation-dialog/signup-confirmation-dialog.component';
 
 @Component({
   selector: 'app-instructor-quiz-view',
@@ -13,16 +14,18 @@ import { QuizServiceService } from 'src/app/services/quiz-service.service';
 export class InstructorQuizViewComponent {
 
 
+
   constructor(
     private courseService: CourseService,
     private route: ActivatedRoute,
-    // private router:Route,
+    private router:Router,
     private dialog: MatDialog,
     private localstorage:LocalStorageService,
     private quizService:QuizServiceService
   ) {}
 
   quizDetails:any;
+  areThereQuizes:boolean=true;
 
   ngOnInit():void{
 
@@ -34,6 +37,11 @@ export class InstructorQuizViewComponent {
       (quiz) => {
         console.log(quiz);
         this.quizDetails=quiz;
+        if (this.quizDetails==null || this.quizDetails==undefined||this.quizDetails==""||(Object.keys(this.quizDetails).length === 0)){
+          this.areThereQuizes=false;
+          console.log("No quizes to grade");
+        }
+
       },
       (error: any) => {
         console.error('Error fetching my enrolled courses:', error);
@@ -44,17 +52,45 @@ export class InstructorQuizViewComponent {
   onGradeClick(quizId:number,grade:number){
     console.log("quizId: "+quizId+" grade: "+grade);
     this.quizService.postQuizMarks(quizId,grade).subscribe(
-      (quiz) => {
+      (quiz:any) => {
         console.log(quiz);
-        this.quizDetails=quiz;
+        if (quiz.message=="Quiz graded successfully!"){
+          this.openDialog(quiz.message,'Confirmation',0,"Ok");
+        }
+        else{
+          this.openDialog(quiz.message,'Error',0,"Try Again");
+        }
       },
       (error: any) => {
-        console.error('Error submitting grades', error);
+        this.openDialog('Error grading quiz','Error',0,"Try Again");
       }
     );
   }
 
 
+  
+// {submission: {…}, message: 'Quiz graded successfully!'}
+// message
+// : 
+// "Quiz graded successfully!"
+// submission
+// : 
+// {id: 22, moduleId: 4, courseId: 25, studentId: 31, submissionStatusId: 2, …}
+// [[Prototype]]
+// : 
+// Object
+
+  openDialog(message: string,title:string,id:number,buttonName:string): void {
+    const dialogRef = this.dialog.open(SignupConfirmationDialogComponent, {
+      width: '250px',
+      data: { message ,buttonName,title:title},
+      panelClass: 'custom-dialog-container', 
+    });
+  
+    dialogRef.afterClosed().subscribe(() => {
+      // this.router.navigateByUrl("/teacher-dashboard");
+    });
+  }
 
 
 }

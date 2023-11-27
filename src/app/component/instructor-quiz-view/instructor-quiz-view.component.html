@@ -1,5 +1,7 @@
-<h1>Ungraded Quizes</h1>
 
+
+<h1>Ungraded Quizes</h1>
+<div *ngIf="areThereQuizes">
     <table>
         <thead>
           <tr>
@@ -18,3 +20,9 @@
           </tr>
         </tbody>
       </table>
+    </div>
+
+
+    
+    <div *ngIf="!areThereQuizes">
+      <h1>No Quizes to grade</h1>
