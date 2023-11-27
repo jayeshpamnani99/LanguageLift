@@ -5,6 +5,7 @@ import { CourseService } from 'src/app/services/course.service';
 import { SignupConfirmationDialogComponent } from '../signup-confirmation-dialog/signup-confirmation-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { DomSanitizer } from '@angular/platform-browser';
 
 
 @Component({
@@ -19,9 +20,11 @@ export class ViewCourseModuleComponent {
     private route: ActivatedRoute,
     public dialog: MatDialog,
     private router:Router,
+    private sanitizer: DomSanitizer
     ) { }
 
     moduleDetails: any;
+    contentURL:any;
     
 
   ngOnInit(): void {
@@ -31,6 +34,7 @@ export class ViewCourseModuleComponent {
     this.courseService.getModuleDetailsFull(moduleId).subscribe(
       details => {
         this.moduleDetails = details;
+        this.contentURL = this.sanitizer.bypassSecurityTrustResourceUrl(this.moduleDetails.contentUrl);
         console.log(this.moduleDetails);
         if (this.moduleDetails==null || this.moduleDetails==undefined||this.moduleDetails==""||(Object.keys(this.moduleDetails).length === 0)){
           this.openDialog('Not enrolled in this course','Confirmation',0);

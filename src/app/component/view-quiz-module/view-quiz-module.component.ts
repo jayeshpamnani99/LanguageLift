@@ -4,6 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CourseService } from 'src/app/services/course.service';
 import { SignupConfirmationDialogComponent } from '../signup-confirmation-dialog/signup-confirmation-dialog.component';
 import { QuizServiceService } from 'src/app/services/quiz-service.service';
+import { DomSanitizer } from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-view-quiz-module',
@@ -16,12 +18,14 @@ export class ViewQuizModuleComponent {
     private route: ActivatedRoute,
     public dialog: MatDialog,
     private router:Router,
-    private quizService:QuizServiceService
+    private quizService:QuizServiceService,
+    private sanitizer: DomSanitizer
     ) { }
 
     moduleDetails: any;
     answer: any;
     quizSubmissionPossible:boolean=true;
+    contentURL:any;
     
   ngOnInit(): void {
     const moduleId = +this.route.snapshot.params['id'];
@@ -32,9 +36,12 @@ export class ViewQuizModuleComponent {
         this.moduleDetails = details;
         this.quizSubmissionPossible=this.moduleDetails.quizSubmissionPossible;
         console.log(this.moduleDetails);
+        console.log("here",this.sanitizer.bypassSecurityTrustResourceUrl(this.moduleDetails.contentUrl));
+        this.contentURL = this.sanitizer.bypassSecurityTrustResourceUrl(this.moduleDetails.contentUrl);
         if (this.moduleDetails==null || this.moduleDetails==undefined||this.moduleDetails==""||(Object.keys(this.moduleDetails).length === 0)){
           this.openDialog('Not enrolled in this course','Confirmation',0);
           this.router.navigateByUrl("/student-dashboard");
+          
         }
 
       },
