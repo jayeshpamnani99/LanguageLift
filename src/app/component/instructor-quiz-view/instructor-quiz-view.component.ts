@@ -5,6 +5,7 @@ import { LocalStorageService } from 'src/app/local-storage.service';
 import { CourseService } from 'src/app/services/course.service';
 import { QuizServiceService } from 'src/app/services/quiz-service.service';
 import { SignupConfirmationDialogComponent } from '../signup-confirmation-dialog/signup-confirmation-dialog.component';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-instructor-quiz-view',
@@ -21,11 +22,14 @@ export class InstructorQuizViewComponent {
     private router:Router,
     private dialog: MatDialog,
     private localstorage:LocalStorageService,
-    private quizService:QuizServiceService
+    private quizService:QuizServiceService,
+    private sanitizer: DomSanitizer
   ) {}
 
   quizDetails:any;
   areThereQuizes:boolean=true;
+  contentURL:any;
+
 
   ngOnInit():void{
 
@@ -33,10 +37,25 @@ export class InstructorQuizViewComponent {
     const courseId = +this.route.snapshot.params['courseId']; // '+' to convert string to number
 
     console.log("moduleId: "+moduleId+" courseId: "+courseId);
+    this.courseService.getModuleDetailsFull(moduleId).subscribe(
+      details => {
+
+        this.contentURL = this.sanitizer.bypassSecurityTrustResourceUrl(details.contentUrl);
+        
+
+      },
+      error => {
+        console.error('Error fetching module details:', error);
+      }      
+    );
+
+
     this.quizService.getQuizSubmissionsForGrading(moduleId,courseId).subscribe(
       (quiz) => {
         console.log(quiz);
         this.quizDetails=quiz;
+        console.log("this",this.quizDetails);
+        this.contentURL=this.sanitizer.bypassSecurityTrustResourceUrl(this.quizDetails.contentUrl);
         if (this.quizDetails==null || this.quizDetails==undefined||this.quizDetails==""||(Object.keys(this.quizDetails).length === 0)){
           this.areThereQuizes=false;
           console.log("No quizes to grade");
