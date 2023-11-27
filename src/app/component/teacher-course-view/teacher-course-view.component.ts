@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class TeacherCourseViewComponent {
 
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  
 }

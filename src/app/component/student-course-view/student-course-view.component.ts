@@ -5,6 +5,7 @@ import { CourseModel } from 'src/app/Models/courseModel';
 import { CourseService } from 'src/app/services/course.service';
 import { SignupConfirmationDialogComponent } from '../signup-confirmation-dialog/signup-confirmation-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { LocalStorageService } from 'src/app/local-storage.service';
 
 @Component({
   selector: 'app-student-course-view',
@@ -20,9 +21,21 @@ export class StudentCourseViewComponent implements OnInit {
     private route: ActivatedRoute,
     private router:Router,
     private dialog: MatDialog,
+    private localstorage:LocalStorageService,
+
   ) {}
 
   ngOnInit(): void {
+
+    if (this.localstorage.get('token')==null){
+      this.openDialog1('Please login to view all courses!','Not Logged in',0,'login');
+      this.router.navigateByUrl("/login");
+    }
+    else if (this.localstorage.get('role')==2){
+      this.openDialog1('Logged in as teacher','You do not have permission to view the student dashboard',0,'teacher-dashboard');
+      this.router.navigateByUrl("/teacher-dashboard");
+    }
+
     const courseId = +this.route.snapshot.params['id']; // '+' to convert string to number
     
     this.courseService.getMyCourses().subscribe(
@@ -79,4 +92,16 @@ export class StudentCourseViewComponent implements OnInit {
     dialogRef.afterClosed().subscribe(() => {
     });
   }
+
+  openDialog1(message: string,title:string,id:number,buttonName:string): void {
+    const dialogRef = this.dialog.open(SignupConfirmationDialogComponent, {
+      width: '250px',
+      data: { message ,buttonName,title:title},
+      panelClass: 'custom-dialog-container', 
+    });
+  
+    dialogRef.afterClosed().subscribe(() => {
+    });
+  }
+
 }
