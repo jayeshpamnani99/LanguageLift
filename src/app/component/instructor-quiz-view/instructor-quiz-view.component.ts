@@ -54,7 +54,6 @@ export class InstructorQuizViewComponent {
         console.log(quiz);
         this.quizDetails=quiz;
         console.log("this",this.quizDetails);
-        // this.contentURL=this.sanitizer.bypassSecurityTrustResourceUrl(this.quizDetails.contentUrl);
         if (this.quizDetails==null || this.quizDetails==undefined||this.quizDetails==""||(Object.keys(this.quizDetails).length === 0)){
           this.areThereQuizes=false;
           console.log("No quizes to grade");
