@@ -49,7 +49,7 @@ export class InstructorQuizViewComponent {
         this.quizDetails=quiz;
       },
       (error: any) => {
-        console.error('Error fetching my enrolled courses:', error);
+        console.error('Error submitting grades', error);
       }
     );
   }

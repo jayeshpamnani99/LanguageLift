@@ -72,8 +72,43 @@ export class ViewQuizModuleComponent {
   
   submitAnswer(){
     this.quizService.submitQuizDetails(this.answer,this.moduleDetails.id,this.moduleDetails.courseId).subscribe(
-      (response) => {
-        console.log('Submitted quiz', response);}
+      (response:any) => {
+        console.log('Submitted quiz', response);
+        if (response && response.message=="quiz submitted successfully!"){
+          this.openDialogForSubmission('Quiz submitted successfully! You can give the quiz again until graded','Confirmation',0);
+        }
+        else{
+          this.openDialogForSubmission('Error submitting quiz!','Error',0);
+        }
+      },
+      error => {
+        console.error('Error fetching module details:', error);
+        this.openDialogForSubmission('Error fetching module details:','Error',0);
+      } 
+
     );
   }
+
+  openDialogForSubmission(message: string,title:string,id:number): void {
+    const dialogRef = this.dialog.open(SignupConfirmationDialogComponent, {
+      width: '250px',
+      data: { message ,buttonName:"close",title:title},
+      panelClass: 'custom-dialog-container', 
+    });
+  
+    dialogRef.afterClosed().subscribe(() => {
+      // this.router.navigateByUrl("/student-dashboard");
+    });
+  }
 }
+
+
+
+// Submitted quiz 
+// {id: 18, message: 'quiz submitted successfully!'}
+// id
+// : 
+// 18
+// message
+// : 
+// "quiz submitted successfully!"

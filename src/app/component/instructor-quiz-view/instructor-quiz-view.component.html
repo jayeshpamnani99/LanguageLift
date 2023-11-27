@@ -15,26 +15,6 @@
             <td>{{ quiz.submissionText }}</td>
             <input type="text" [(ngModel)]="quiz.grade" name="grade" placeholder="grade" required>
             <button (click)="onGradeClick(quiz.id,quiz.grade)">Grade</button>
-            <!--<td>{{ module.moduleType.type }}</td> -->
           </tr>
         </tbody>
       </table>
-
-
-    <!-- <table>
-        <thead>
-          <tr>
-            <th>Serial Number</th>
-            <th>Title</th>
-            <th>Module Type</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let module of courseModulesDetails"  (click)="onModuleClick(module.id, module.contentUrl,module.moduleType.id)">
-            <td>{{ module.serialNumber }}</td>
-            <td>{{ module.title }}</td>
-            <td>{{ module.moduleType.type }}</td>
-          </tr>
-        </tbody>
-      </table> -->
-  <!-- <app-instructor-quiz-view [quiz]="quiz">quiz</app-instructor-quiz-view> -->
