@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { CourseModel } from 'src/app/Models/courseModel';
+import { CourseModel, InstructorDetails } from 'src/app/Models/courseModel';
 import { CourseService } from 'src/app/services/course.service';
 import { SignupConfirmationDialogComponent } from '../signup-confirmation-dialog/signup-confirmation-dialog.component';
 import { LocalStorageService } from 'src/app/local-storage.service';
@@ -16,6 +16,7 @@ export class TeacherDashboardComponent {
   enrolledCourses: CourseModel[] = [];
   viewAllCourses: boolean = true; // To toggle between tabs
   buttonType: string = 'View this Course';
+  userDetails: any;
 
   constructor(private courseService: CourseService, public dialog: MatDialog,private router:Router,private localstorage:LocalStorageService ) {}
 
@@ -35,6 +36,7 @@ export class TeacherDashboardComponent {
     this.courseService.getCoursesByTeacherId().subscribe(
       (courses) => {
         console.log(courses);
+        this.userDetails=courses.userDetails;
         this.courses = courses.courseDetails;
       },
       (      error: any) => {

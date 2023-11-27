@@ -10,6 +10,7 @@ import { ViewCourseModuleComponent } from './component/view-course-module/view-c
 import { ViewQuizModuleComponent } from './component/view-quiz-module/view-quiz-module.component';
 import { TeacherDashboardComponent } from './component/teacher-dashboard/teacher-dashboard.component';
 import { TeacherCourseViewComponent } from './component/teacher-course-view/teacher-course-view.component';
+import { InstructorQuizViewComponent } from './component/instructor-quiz-view/instructor-quiz-view.component';
 
 const routes: Routes = [{
   path:'signup',
@@ -52,6 +53,11 @@ const routes: Routes = [{
     path: 'teacher-course-view/:id', 
     component: TeacherCourseViewComponent
   },
+  {
+    path: 'teacher-course/:courseId/module/:moduleId',
+    component:InstructorQuizViewComponent
+  }
+  ,
 {
   path:'',
   redirectTo:'/login',

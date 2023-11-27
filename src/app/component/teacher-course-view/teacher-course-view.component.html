@@ -1,1 +1,35 @@
-<p>teacher-course-view works!</p>
+<!-- <p>teacher-course-view works!</p> -->
+<!-- student-course-view.component.html -->
+<div class="course-view">
+    <div class="course-header">
+      <h1>{{courseIdDetails.title}}</h1>
+      <p>{{courseIdDetails.description}}</p>
+      <div class="course-meta">
+        <span>Instructor {{userDetails.name}}</span>
+        <span>Difficulty {{courseIdDetails.difficulty}}</span>
+      </div>
+      <!-- Place the button in a new div to push it onto the next line -->
+      <!-- <div class="enroll-button-container">
+        <button class="enroll-button">ENROLL</button>
+      </div> -->
+    </div>
+  
+  
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Serial Number</th>
+        <th>Title</th>
+        <th>Module Type</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let module of courseModulesDetails"  (click)="onModuleClick(module.id, module.contentUrl,module.moduleType.id)">
+        <td>{{ module.serialNumber }}</td>
+        <td>{{ module.title }}</td>
+        <td>{{ module.moduleType.type }}</td>
+      </tr>
+    </tbody>
+  </table>
+  
