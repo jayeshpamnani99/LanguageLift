@@ -78,7 +78,9 @@ export class TeacherCourseViewComponent {
       this.router.navigateByUrl("/moduleView/"+moduleId);
     }
     else{
-      this.router.navigateByUrl("/quizView/"+moduleId);
+      const courseId = +this.route.snapshot.params['id'];
+      this.router.navigateByUrl("teacher-quiz/"+courseId+"/module/"+moduleId);
+
     }
 
   }

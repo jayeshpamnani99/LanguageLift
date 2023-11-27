@@ -54,7 +54,7 @@ const routes: Routes = [{
     component: TeacherCourseViewComponent
   },
   {
-    path: 'teacher-course/:courseId/module/:moduleId',
+    path: 'teacher-quiz/:courseId/module/:moduleId',
     component:InstructorQuizViewComponent
   }
   ,
