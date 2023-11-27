@@ -80,7 +80,6 @@ export class TeacherCourseViewComponent {
     else{
       const courseId = +this.route.snapshot.params['id'];
       this.router.navigateByUrl("teacher-quiz/"+courseId+"/module/"+moduleId);
-
     }
 
   }

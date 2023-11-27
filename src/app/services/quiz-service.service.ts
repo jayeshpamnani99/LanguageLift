@@ -18,12 +18,29 @@ export class QuizServiceService {
       'Authorization': this.localStorageService.get('token')
     })}
   }
+  getHttpOptionsWithTokenAndContentType() {
+    return {headers: new HttpHeaders({
+      'Authorization': this.localStorageService.get('token'),
+      'Content-Type': 'application/json'
+    })}
+  }
 
   public submitQuizDetails(submissionText:string,moduleId:number,courseId:number) {
     this.httpOptions = this.getHttpOptionsWithToken();
     return this.http.post(this.qmsUrl+'/submitQuiz', {courseId: courseId,
       moduleId: moduleId,
       submissionText: submissionText}, this.httpOptions );
+  }
+
+  public getQuizSubmissionsForGrading(moduleId:number,courseId:number) {
+    this.httpOptions = this.getHttpOptionsWithToken();
+    return this.http.get(this.qmsUrl+'/getQuizSubmissionsForGrading?courseModuleId='+moduleId+'&courseId='+courseId, this.httpOptions );
+  }
+
+  public postQuizMarks(submissionId:number,marksObtained:number){
+    this.httpOptions = this.getHttpOptionsWithTokenAndContentType();
+    return this.http.post(this.qmsUrl+'/postQuizMarks?submissionId='+submissionId+'&marksObtained='+marksObtained, {},this.httpOptions );
+
   }
 
 }
