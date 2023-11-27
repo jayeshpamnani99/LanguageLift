@@ -36,6 +36,17 @@ export class InstructorQuizViewComponent {
     const moduleId = +this.route.snapshot.params['moduleId']; // '+' to convert string to number
     const courseId = +this.route.snapshot.params['courseId']; // '+' to convert string to number
 
+    if (this.localstorage.get('token')==null){
+      this.openDialog('Please login to view all courses!','Not Logged in',0,'login');
+      this.router.navigateByUrl("/login");
+    }
+    else if (this.localstorage.get('role')==1){
+      this.openDialog('Logged in as Student','You do not have permission to view the Teacher dashboard',0,'student-dashboard');
+      this.router.navigateByUrl("/student-dashboard");
+    }
+
+    
+
     console.log("moduleId: "+moduleId+" courseId: "+courseId);
     this.courseService.getModuleDetailsFull(moduleId).subscribe(
       details => {
