@@ -4,6 +4,7 @@ export const environment = {
     umsPort: '8081',
     emsPort: '8082',
     ccmsPort: '8083',
+    qmsPort: '8084',
 
   };
   

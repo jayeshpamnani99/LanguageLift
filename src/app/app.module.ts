@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SignupComponent } from './component/signup/signup.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignupService } from './services/signup.service';
 import { LoginComponent } from './component/login/login.component';
 import { CourseDetailsComponent } from './course-details/course-details.component';
@@ -42,6 +42,7 @@ import { TeacherCourseViewComponent } from './component/teacher-course-view/teac
     HttpClientModule,
     MatDialogModule,
     NgxExtendedPdfViewerModule,
+    FormsModule
 
   ],
   providers: [SignupService],
