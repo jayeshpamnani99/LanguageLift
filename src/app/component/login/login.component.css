@@ -1,3 +1,68 @@
-form {
-    width: 500px;
-}
+.login-container {
+    width: 100%;
+    min-width: 600px; /* Adjust this to increase the width of the container */
+    margin: auto;
+    padding: 50px 20px;
+    border: 1px solid #CCCCCC;
+    border-radius: 8px;
+    text-align: center;
+    background-color: #FFF;
+  }
+  
+  .login-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .input-group input.form-control {
+    width: 100%; /* Set input width to 100% to fill the container */
+    padding: 10px;
+    border:none;
+    border-bottom: 2px solid #CCCCCC;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    font-size: 16px;
+  }
+  
+  .login-title {
+    font-size: 24px; /* Choose a size that fits your design */
+    font-weight: bold;
+    margin-bottom: 20px; /* Adjust space below the title */
+    color: #21294F;
+    /* Add any additional styling you want here */
+  }
+  
+  
+  .form-control::placeholder {
+    color: #AAAAAA;
+    border: none;
+  }
+  
+  .btn-login, .btn-signup {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .btn-login {
+    background-color: #21294F;
+    color: white;
+  }
+  
+  .btn-signup {
+    background-color: #B4E6EA;
+    color: #21294F;
+  }
+  .btn-signup:hover{
+    background-color: #6983DE;
+    color: #fff;
+  }
+  
+  .button-group {
+    display: flex;
+    flex-direction: column;
+  }
+  

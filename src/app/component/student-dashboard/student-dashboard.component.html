@@ -21,10 +21,17 @@
               <div class="course-difficulty-tag">{{ course.difficulty }}</div>
             </div>
             <div class="course-card-body">
-              <p class="course-description">{{ course.description }}</p>
-              <div class="course-duration">Hours per week requirement: {{ course.avgDuration }} </div>
-              <div class="course-instructor">Instructor: {{ course.instructorDetails?.name }}</div>
-              <button class="course-enroll-button" (click)="buttonClick(course.id)">{{buttonType}}</button>
+              <div class="course-description-container">
+                <!-- <p class="course-description">{{ course.description?.length ? (course.description | slice:0:150) + '...' : course.description }}</p> -->
+                <p class="course-description">{{ course.description}}</p>
+              </div>
+              <div class="course-dur-inst-container">
+              <div class="course-duration"><b>Average Hours required per week: </b>{{ course.avgDuration }} </div>
+              <div class="course-instructor"><b>Instructor:</b> {{ course.instructorDetails?.name }}</div>
+              </div>
+              <div class="course-card-footer">
+                <button class="course-enroll-button" (click)="buttonClick(course.id)">{{buttonType}}</button>
+              </div>
             </div>
           </div>
         </div>
