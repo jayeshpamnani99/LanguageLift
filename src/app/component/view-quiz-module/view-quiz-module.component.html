@@ -1,29 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Module Details</title>
-    <!-- Bootstrap CSS link -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <!-- Your custom styles -->
-</head>
-<body>
-
-<!-- Bootstrap container for responsiveness -->
-
-
 <div class="container">
     <h1>{{moduleDetails.serialNumber}}. {{moduleDetails.title}} </h1>
     <h1 class="mt-4">Module Details</h1>
-
-    <ul class="list-unstyled">
-        <li><strong>Week Number:</strong> {{moduleDetails.weekNumber}}</li>
-        <li><strong>Serial Number:</strong> {{moduleDetails.serialNumber}}</li>
-        <li><strong>Title:</strong> {{moduleDetails.title}}</li>
-        <li><strong>Description:</strong> {{moduleDetails.description}}</li>
-        <!-- <li><strong>Content URL:</strong> <a href="{{moduleDetails.contentUrl}}" target="_blank">View Content</a></li> -->
-    </ul>
+    <div class=""module-list>
+        <ul class="list-unstyled">
+            <li><strong>Week Number:</strong> {{moduleDetails.weekNumber}}</li>
+            <li><strong>Serial Number:</strong> {{moduleDetails.serialNumber}}</li>
+            <li><strong>Title:</strong> {{moduleDetails.title}}</li>
+            <li><strong>Description:</strong> {{moduleDetails.description}}</li>
+            <!-- <li><strong>Content URL:</strong> <a href="{{moduleDetails.contentUrl}}" target="_blank">View Content</a></li> -->
+        </ul>
+    </div>
+    
     <h3>Quiz</h3>
     <iframe [src]="contentURL" frameborder="0" class="w-100" height="600px"></iframe>
     <h3>Submit your quiz here:</h3>
@@ -37,10 +24,3 @@
 
 </div>
 
-<!-- Bootstrap JavaScript and Popper.js (required for Bootstrap's JavaScript features) -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-</body>
-</html>

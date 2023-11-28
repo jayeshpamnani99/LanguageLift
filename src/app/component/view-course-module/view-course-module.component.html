@@ -1,23 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Module Details</title>
-</head>
-<body>
+<div class="module-container">
+    <div class="module-header">
+        <h1>Module Details</h1>
+    </div>
+    <div class="module-list">
+        <ul>
+            <li><strong>Title:</strong> {{moduleDetails.title}}</li>
+            <li><strong>Description:</strong> {{moduleDetails.description}}</li>
+            <li><strong>Week Number:</strong> {{moduleDetails.serialNumber}}</li>
+            <li><strong>Serial Number:</strong> {{moduleDetails.serialNumber}}</li>
+        </ul>
+    </div>
 
-<h1>Module Details</h1>
-<h1>{{moduleDetails.serialNumber}}. {{moduleDetails.title}} </h1>
-<ul>
-    <li><strong>Week Number</strong> {{moduleDetails.serialNumber}}</li>
-    <li><strong>Serial Number:</strong> {{moduleDetails.serialNumber}}</li>
-    <li><strong>Title:</strong> {{moduleDetails.title}}</li>
-    <li><strong>Description:</strong> {{moduleDetails.description}}</li>
-    <!-- <li><strong>Content URL:</strong> <a href={{moduleDetails.contentUrl}} target="_blank">View Content</a></li> -->
-</ul>
-<h3>Course Content</h3>
+<h6>Course Content:</h6>
 <iframe [src]="contentURL" frameborder="0" class="w-100" height="600px"></iframe>
-
-</body>
-</html>
+</div>

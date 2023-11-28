@@ -1,10 +1,5 @@
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 20px;
-}
-
 h1 {
-    color: #333;
+    color: #21294F;
 }
 
 ul {
@@ -14,17 +9,25 @@ ul {
 
 li {
     margin-bottom: 10px;
+    color: #6983DE;
 }
 
 strong {
-    color: #007BFF;
+    color: #21294F;
 }
 
-a {
-    color: #28A745;
-    text-decoration: none;
+.module-header h1{
+    margin-top: 50px;
+    padding: 50px;
+    margin-left: 50px;
 }
+.module-list{
+    padding-top: 20px;
+    margin-left: 50px;
+}
+h3 {
+    color: #21294F;
 
-a:hover {
-    text-decoration: underline;
+    margin-left: 50px;
+    
 }
