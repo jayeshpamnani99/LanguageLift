@@ -43,7 +43,6 @@
 /* Course Cards */
 .scroll-container {
   min-height: 90vh; /* Adjust as needed */
-
   overflow-y: auto;
 }
 
