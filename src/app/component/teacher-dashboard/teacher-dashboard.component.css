@@ -1,103 +1,144 @@
 /* src/app/student-dashboard/student-dashboard.component.css */
 
 .course-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin: -10px;
-  }
-  
-  .student-dashboard {
-    background-color: #B4E6EA; /* Replace with the color you prefer */
-    margin: auto;
-    min-height: 100vh; /* Make sure it covers the full height */
-    min-width: 100vw;
-  }
-  
-  /* Tab Links */
-  .nav-tabs {
-    margin-top: 20px;
-  }
-  
-  .nav-link {
-    cursor: pointer;
-    padding: 10px 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px 5px 0 0;
-    background-color: #f8f9fa;
-  }
-  
-  .nav-link.active {
-    background-color: #fff;
-  }
-  
-  /* Tab Content */
-  .tab-content {
-    border: 1px solid #ddd;
-    /* border-radius: 0 0 5px 0px; */
-    padding: 15px;
-  }
-  
-  /* Course Cards */
-  .scroll-container {
-    max-height: 400px; /* Adjust as needed */
-    overflow-y: auto;
-  }
-  
-  .course-container {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .course-card {
-    flex: 0 0 calc(33.333% - 20px); /* 33.333% width with space between cards */
-    margin: 10px;
-    border-radius: 10px;
-    background: white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .course-card-header {
-    color: #21294F;
-    padding: 15px;
-    font-weight: 600;
-    font-size: 25px;
-    position: relative;
-  }
-  
-  
-  .course-difficulty-tag {
-    margin-top: 5px;
-    background-color: #28a745;
-    color: #fff;
-    padding: 5px;
-    border-radius: 3px;
-    display: inline-block;
-  }
-  
-  .course-card-body {
-    padding: 10px;
-  }
-  
-  .course-description {
-    margin-bottom: 10px;
-  }
-  
-  .course-duration,
-  .course-instructor {
-    margin-bottom: 5px;
-  }
-  
-  .course-enroll-button {
-    background-color: #007bff;
-    color: #fff;
-    padding: 8px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .course-enroll-button:hover {
-    background-color: #0056b3;
-  }
-  
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: 10px;
+}
+
+.teacher-dashboard {
+  background-color: #B4E6EA; /* Replace with the color you prefer */
+  margin: auto;
+  min-height: 100vh; /* Make sure it covers the full height */
+  min-width: 100vw;
+}
+
+/* Tab Links */
+.nav-tabs {
+  margin-top: 20px;
+  background-color: #21294F;
+}
+
+.nav-link {
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 5px 5px 0 0;
+  background-color: #21294F;
+  color: #fff;
+}
+
+.nav-link.active {
+  background-color: #fff;
+  color: #21294F;
+}
+
+/* Tab Content */
+.tab-content {
+  /* border-radius: 0 0 5px 0px; */
+  padding: 10px;
+}
+
+/* Course Cards */
+.scroll-container {
+  min-height: 90vh; /* Adjust as needed */
+  overflow-y: auto;
+}
+
+.course-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.course-card {
+  flex: 0 0 calc(33.333% - 20px); /* Adjust this to change the width of the cards */
+  margin: 10px;
+  display: flex;
+  flex-direction: column; /* Stack the content vertically */
+  justify-content: space-between; /* Distribute space between items */
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  min-height:200px; /* This is a new addition, adjust as needed */
+}
+
+.course-card-body {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Fill the height of the card */
+  padding: 10px;
+  color: #6983DE
+
+}
+.course-description-container {
+  flex-grow: 1;
+  margin-bottom: 10px; /* Spacing for the description */
+}
+
+.course-dur-inst-container {
+  flex-grow: 1;
+  margin-bottom: 20px; /* Spacing for the description */
+}
+
+.course-card-header {
+  color: #21294F;
+  padding: 15px;
+  font-weight: 600;
+  font-size: 20px;
+  position: relative;
+}
+
+
+.course-difficulty-tag {
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  background: #FAEFC6; 
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #21294F;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.course-description {
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+
+.course-enroll-button {
+  align-self: flex-end; /* Align button to the start of the flex container */
+  margin-top: auto; /* Push the button to the bottom */
+  background-color: #34BCCF;
+  bottom: 10px; /* Adjust as necessary for spacing from the bottom edge */
+  left: 10px;  /* Adjust as necessary for spacing from the left edge */
+  background-color: #34BCCF;
+  color: #fff;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  /* Ensuring the button doesn't overflow the card */
+  overflow: hidden;
+}
+
+.course-duration,
+.course-instructor {
+  align-self: flex-start; /* Align to the end of the flex container */
+  margin-top: auto; /* Push the info to the bottom */
+  font-size: 12px;
+
+}
+
+
+.course-enroll-button:hover {
+  background-color: #6983DE;
+}
+.course-card-footer {
+  display: flex;
+  justify-content: space-between;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+}
