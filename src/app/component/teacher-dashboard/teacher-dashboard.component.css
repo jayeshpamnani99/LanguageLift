@@ -7,7 +7,8 @@
   margin: 10px;
 }
 
-.student-dashboard {
+
+.teacher-dashboard {
   background-color: #B4E6EA; /* Replace with the color you prefer */
   margin: auto;
   min-height: 100vh; /* Make sure it covers the full height */
@@ -41,7 +42,8 @@
 
 /* Course Cards */
 .scroll-container {
-  max-height: 90vh; /* Adjust as needed */
+  min-height: 90vh; /* Adjust as needed */
+
   overflow-y: auto;
 }
 

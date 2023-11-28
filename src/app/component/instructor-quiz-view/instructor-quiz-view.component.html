@@ -15,7 +15,7 @@
         <tbody>
           <tr *ngFor="let quiz of quizDetails" >
             <td>{{ quiz.userDetails.name }}</td>
-            <td>{{ quiz.submissionText }}</td>
+            <td><pre>{{ quiz.submissionText }}</pre></td>
             <input type="text" [(ngModel)]="quiz.grade" name="grade" placeholder="grade" required>
             <button (click)="onGradeClick(quiz.id,quiz.grade)">Grade</button>
           </tr>

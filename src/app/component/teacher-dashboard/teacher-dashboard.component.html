@@ -1,47 +1,53 @@
 <!-- src/app/student-dashboard/student-dashboard.component.html -->
-<div class="student-dashboard">
+<div class="teacher-dashboard">
 
-    <!-- Tab Links -->
-    <nav class="nav nav-tabs">
-      <a class="nav-link" [class.active]="viewAllCourses" (click)="showAllCourses()">All Courses</a>
-      <a class="nav-link"  (click)="signOut()">Sign Out</a>
-    </nav>
-    <!-- Tab Content -->
-    <div class="tab-content">
-      <!-- All Courses Tab -->
-      <div *ngIf="viewAllCourses" class="container tab-pane active">
-        <div class="scroll-container">
-          <div class="course-container">
-            <!-- Existing ngFor for displaying courses -->
-            <div *ngFor="let course of courses" class="course-card">
-              <!-- existing course card markup -->
-              <div class="course-card-header">
-                {{ course.title }}
-                <div class="course-difficulty-tag">{{ course.difficulty }}</div>
+  <!-- Tab Links -->
+  <nav class="nav nav-tabs">
+    <a class="nav-link" [class.active]="viewAllCourses" (click)="showAllCourses()">All Courses</a>
+    <a class="nav-link"  (click)="signOut()">Sign Out</a>
+  </nav>
+  <!-- Tab Content -->
+  <div class="tab-content">
+    <!-- All Courses Tab -->
+    <div *ngIf="viewAllCourses" class="container tab-pane active">
+      <div class="scroll-container">
+        <div class="course-container">
+          <!-- Existing ngFor for displaying courses -->
+          <div *ngFor="let course of courses" class="course-card">
+            <!-- existing course card markup -->
+            <div class="course-card-header">
+              {{ course.title }}
+              <div class="course-difficulty-tag">{{ course.difficulty }}</div>
+            </div>
+            <div class="course-card-body">
+              <div class="course-description-container">
+                <!-- <p class="course-description">{{ course.description?.length ? (course.description | slice:0:150) + '...' : course.description }}</p> -->
+                <p class="course-description">{{ course.description}}</p>
               </div>
-              <div class="course-card-body">
-                <p class="course-description">{{ course.description }}</p>
-                <div class="course-duration">Hours per week requirement: {{ course.avgDuration }} </div>
-                <div class="course-instructor">Instructor: {{ userDetails?.name }}</div>
+              <div class="course-dur-inst-container">
+              <div class="course-duration"><b>Average Hours required per week: </b>{{ course.avgDuration }} </div>
+              <div class="course-instructor"><b>Instructor:</b> {{ course.instructorDetails?.name }}</div>
+              </div>
+              <div class="course-card-footer">
                 <button class="course-enroll-button" (click)="buttonClick(course.id)">{{buttonType}}</button>
               </div>
             </div>
           </div>
         </div>
       </div>
-  
-      <!-- My Courses Tab -->
-      <div *ngIf="!viewAllCourses" class="container tab-pane">
-        <div class="scroll-container">
-          <div class="course-container">
-            <!-- You will need to repeat similar markup here, but filter only the enrolled courses -->
-            <div *ngFor="let course of enrolledCourses" class="course-card">
-              <!-- existing course card markup -->
-            </div>
+    </div>
+
+    <!-- My Courses Tab -->
+    <div *ngIf="!viewAllCourses" class="container tab-pane">
+      <div class="scroll-container">
+        <div class="course-container">
+          <!-- You will need to repeat similar markup here, but filter only the enrolled courses -->
+          <div *ngFor="let course of enrolledCourses" class="course-card">
+            <!-- existing course card markup -->
           </div>
         </div>
       </div>
     </div>
   </div>
-  
-  
+</div>
+
