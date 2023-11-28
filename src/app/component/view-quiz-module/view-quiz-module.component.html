@@ -13,7 +13,7 @@
     
     <h3>Quiz</h3>
     <iframe [src]="contentURL" frameborder="0" class="w-100" height="600px"></iframe>
-    <h3>Submit your quiz here:</h3>
+    <h3>Submit your quiz answers here:</h3>
     <div *ngIf="quizSubmissionPossible">
     <textarea [(ngModel)]="answer" placeholder="Enter your answer" class="form-control mt-3"></textarea>
     <button class="btn btn-primary mt-3" (click)="submitAnswer()">Submit Answer</button>

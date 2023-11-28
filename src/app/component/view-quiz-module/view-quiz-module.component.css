@@ -32,3 +32,22 @@ h6 {
     margin-left: 50px;
     
 }
+.btn{
+    align-self: flex-end; /* Align button to the start of the flex container */
+  margin-top: auto; /* Push the button to the bottom */
+  background-color: #34BCCF;
+  bottom: 10px; /* Adjust as necessary for spacing from the bottom edge */
+  left: 10px;  /* Adjust as necessary for spacing from the left edge */
+  background-color: #34BCCF;
+  color: #fff;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  /* Ensuring the button doesn't overflow the card */
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.btn:hover{
+    background-color: #6983DE;
+}
