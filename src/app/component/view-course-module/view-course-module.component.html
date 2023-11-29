@@ -1,18 +1,23 @@
+<!-- Assuming your original course module HTML structure -->
 <app-back-button></app-back-button>
 
-<div class="module-container">
+<div class="quiz-view-container">
     <div class="module-header">
-        <h1>Module Details</h1>
+        <h1 class="title">Module Details</h1>
     </div>
     <div class="module-list">
+        <!-- Your module list content -->
         <ul>
             <li><strong>Title:</strong> {{moduleDetails.title}}</li>
             <li><strong>Description:</strong> {{moduleDetails.description}}</li>
-            <li><strong>Week Number:</strong> {{moduleDetails.serialNumber}}</li>
+            <li><strong>Week Number:</strong> {{moduleDetails.weekNumber}}</li>
             <li><strong>Serial Number:</strong> {{moduleDetails.serialNumber}}</li>
         </ul>
     </div>
-
-<h6>Course Content:</h6>
-<iframe [src]="contentURL" frameborder="0" class="w-100" height="600px"></iframe>
+    <h6>Course Content:</h6>
+    <div class="iframe-container">
+        <iframe [src]="contentURL" frameborder="0" class="w-100" height="600px"></iframe>
+    </div>
 </div>
+
+
