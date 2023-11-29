@@ -27,9 +27,15 @@
   color: #fff;
 }
 
-.nav-link.active {
-  background-color: #fff;
-  color: #21294F;
+.nav-link.all-courses.active {
+  background-color: #fff; /* White background for active state */
+  color: #21294F; /* Text color for active state */
+}
+
+/* Active state for My Courses tab */
+.nav-link.my-courses.active {
+  background-color: #fff; /* White background for active state */
+  color: #21294F; /* Text color for active state */
 }
 
 /* Tab Content */
