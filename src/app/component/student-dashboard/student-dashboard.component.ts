@@ -16,6 +16,8 @@ export class StudentDashboardComponent implements OnInit {
   courses: CourseModel[] = [];
   enrolledCourses: CourseModel[] = [];
   viewAllCourses: boolean = true; // To toggle between tabs
+  activeAllTab:boolean = true;
+  activeMyTab: boolean = false;
   buttonType: string = 'Enroll';
 
   constructor(private courseService: CourseService, public dialog: MatDialog,private router:Router ,private localstorage:LocalStorageService) {}
@@ -62,12 +64,17 @@ export class StudentDashboardComponent implements OnInit {
 
   showAllCourses() {
     this.viewAllCourses = true;
+    this.activeAllTab = true;
+    this.activeMyTab = false;
+
     this.loadAllCourses();
     this.buttonType='Enroll';
   }
 
   showMyCourses() {
-    this.viewAllCourses = false;
+    this.viewAllCourses = true;
+    this.activeMyTab = true;
+    this.activeAllTab = false;
     this.loadMyCourses();
     this.buttonType='View this Course';
   }
