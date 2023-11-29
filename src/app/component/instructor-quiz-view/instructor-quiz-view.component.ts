@@ -128,7 +128,9 @@ export class InstructorQuizViewComponent {
   
     dialogRef.afterClosed().subscribe(() => {
       // this.router.navigateByUrl("/teacher-dashboard");
-      this.ngOnInit();
+      if (buttonName=="Ok"){
+        this.ngOnInit();
+      }
 
     });
   }
