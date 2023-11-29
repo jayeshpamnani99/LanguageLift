@@ -6,7 +6,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { LoginComponent } from './login.component';
 import { FormGroup,ReactiveFormsModule } from '@angular/forms';
 
-fdescribe('LoginComponent', () => {
+describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
 
