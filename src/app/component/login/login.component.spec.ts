@@ -6,7 +6,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { LoginComponent } from './login.component';
 import { FormGroup,ReactiveFormsModule } from '@angular/forms';
 
-fdescribe('LoginComponent', () => {
+describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
 
@@ -50,4 +50,20 @@ fdescribe('LoginComponent', () => {
     password.setValue('password123');
     expect(component.login.valid).toBeTruthy();
   });
+  it('should call loginSubmit on form submit', () => {
+
+    spyOn(component, 'signUpSubmit');
+     let button = fixture.debugElement.nativeElement.querySelector('.btn-signup');
+     button.click();
+     expect(component.signUpSubmit).toHaveBeenCalled();
+   }); 
+ 
+   it('should call loginSubmit method when the form is submitted', () => {
+     spyOn(component, 'loginSubmit');
+     const form = fixture.nativeElement.querySelector('form');
+     form.dispatchEvent(new Event('submit'));
+ 
+     fixture.detectChanges();
+     expect(component.loginSubmit).toHaveBeenCalled();
+   });
 });
