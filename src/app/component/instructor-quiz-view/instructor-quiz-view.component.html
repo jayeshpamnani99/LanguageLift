@@ -11,7 +11,7 @@
             <tr>
               <th>Student Name</th>
               <th>submission text</th>
-              <th>Grade</th>
+              <th>Marks (Out of 100)</th>
   
             </tr>
           </thead>
@@ -20,7 +20,7 @@
               <td>{{ quiz.userDetails.name }}</td>
               <td><pre>{{ quiz.submissionText }}</pre></td>
               <input type="text" [(ngModel)]="quiz.grade" *ngIf="!quiz.marksObtained" name="grade" placeholder="marks" required>
-              <button *ngIf="!quiz.marksObtained" (click)="onGradeClick(quiz.id,quiz.grade)">Submit Marks</button>
+              <button *ngIf="!quiz.marksObtained" (click)="onGradeClick(quiz.id,quiz.grade)">Submit Marks (/100)</button>
               <td *ngIf="quiz.marksObtained" >{{ quiz.marksObtained }}</td>
             </tr>
           </tbody>
