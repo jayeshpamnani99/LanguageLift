@@ -1,0 +1,16 @@
+button {
+    background-color: #34BCCF; /* Dark blue color, similar to tab links */
+    color: white; /* White text for contrast */
+    border: none; /* No border for a clean look */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Cursor change to indicate it's clickable */
+    font-size: 16px; /* Adjust as needed */
+    margin-left: 10px; /* Left margin for alignment */
+    position: fixed;
+    top:20px;
+  }
+  
+  button:hover {
+    background-color: #6983DE; /* Lighter shade of blue for hover effect */
+  }
+  

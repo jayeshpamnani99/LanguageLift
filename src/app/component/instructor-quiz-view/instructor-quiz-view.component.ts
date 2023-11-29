@@ -29,6 +29,7 @@ export class InstructorQuizViewComponent {
   quizDetails:any;
   areThereQuizes:boolean=true;
   contentURL:any;
+  marksObtained:boolean = false;
 
 
   ngOnInit():void{
@@ -67,7 +68,18 @@ export class InstructorQuizViewComponent {
         console.log("this",this.quizDetails);
         if (this.quizDetails==null || this.quizDetails==undefined||this.quizDetails==""||(Object.keys(this.quizDetails).length === 0)){
           this.areThereQuizes=false;
-          console.log("No quizes to grade");
+          console.log("No quizes submitted");
+        }
+        console.log(this.quizDetails.marksObtained)
+
+        if(this.quizDetails.marksObtained == null || this.quizDetails.marksObtained == undefined || this.quizDetails.marksObtained =="")
+        {
+          this.marksObtained = false;
+          console.log("No marks submitted");
+        }
+        else{
+          this.marksObtained = true;
+          
         }
       },
       (error: any) => {
@@ -116,6 +128,8 @@ export class InstructorQuizViewComponent {
   
     dialogRef.afterClosed().subscribe(() => {
       // this.router.navigateByUrl("/teacher-dashboard");
+      this.ngOnInit();
+
     });
   }
 

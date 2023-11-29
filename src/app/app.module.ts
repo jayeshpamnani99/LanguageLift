@@ -19,6 +19,7 @@ import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { TeacherDashboardComponent } from './component/teacher-dashboard/teacher-dashboard.component';
 import { TeacherCourseViewComponent } from './component/teacher-course-view/teacher-course-view.component';
 import { InstructorQuizViewComponent } from './component/instructor-quiz-view/instructor-quiz-view.component';
+import { BackButtonComponent } from './back-button/back-button.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { InstructorQuizViewComponent } from './component/instructor-quiz-view/in
     TeacherDashboardComponent,
     TeacherCourseViewComponent,
     InstructorQuizViewComponent,
+    BackButtonComponent,
     
   ],
   imports: [

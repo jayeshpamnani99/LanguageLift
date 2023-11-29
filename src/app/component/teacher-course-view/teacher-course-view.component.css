@@ -1,97 +1,101 @@
 /* student-course-view.component.css */
 .course-view {
-    /* Ensure the font sizes, weights, and colors match your design */
-    margin-top: -30;
-    font-family: Arial, sans-serif;
-  }
-  
-  .course-header {
-   
-    text-align: left; /* Center the header content */
-    padding: 4em; /* Adjust the padding to match the design */
-    background-color: #B4E6EA; /* Use the background color similar to your design */
-    min-height: 50vh; /* Make sure it covers the full height */
-    min-width: 100vw;
-  }
-  
-  .course-header h1 {
-    font-size: 3em; /* Large font size for the course title */
-    color: #333; /* Color for the course title */
-    margin-bottom: 0.5em; /* Spacing between title and description */
-  }
-  
-  .course-header p {
-    font-size: 1.5em; /* Adjust to match the design */
-    color: #666; /* Description text color */
-    margin-bottom: 1em; /* Spacing between description and meta information */
-  }
-  
-  .course-meta {
-    display: flex;
-    justify-content: left; /* Center the course meta information */
-    align-items: left; /* Align items vertically */
-    gap: 1em; /* Add space between meta items */
-    margin-bottom: 1em; /* Spacing below meta information */
-  }
-  
-  .course-meta span {
-    font-size: 1.2em; /* Size of the meta information text */
-    color: #444; /* Meta information text color */
-  }
-  
-  .enroll-button {
-    padding: 0.5em 1em; /* Padding inside the button */
-    background-color: #34BCCF; /* Button background color */
-    color: white; /* Button text color */
-    border: none; /* No border */
-    border-radius: 0.3em; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
-    font-size: 1em; /* Button text size */
-    transition: background-color 0.3s ease; /* Transition for a smooth color change */
-  }
-  
-  .enroll-button:hover {
-    background-color: #6983DE; /* Darker background color on hover */
-  }
-  
-  .course-modules {
-    padding: 2em; /* Adjust padding to match design */
-  }
-  
-  .course-modules h2 {
-    font-size: 2em; /* Size of module titles */
-    color: #333; /* Module title color */
-    margin-bottom: 0.5em; /* Space below module title */
-  }
-  
-  .course-modules p {
-    font-size: 1em; /* Paragraph text size */
-    color: #666; /* Paragraph text color */
-    line-height: 1.6; /* Line height for readability */
-  }
-  
-  
-  
-  /* styles.css */
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-  
-  th, td {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-  }
-  
-  th {
-    background-color: #B4E6EA; /* Match the background color of the course header */
-  }
-  
-  tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-  
-  
-  
+  /* Ensure the font sizes, weights, and colors match your design */
+  margin-top: -50;
+  font-family: Arial, sans-serif;
+}
+
+.course-header {
+ 
+  text-align: left; /* Center the header content */
+  padding: 4em; /* Adjust the padding to match the design */
+  background-color: #B4E6EA; /* Use the background color similar to your design */
+  max-height: 50vh; /* Make sure it covers the full height */
+  min-width: 100vw;
+}
+
+.course-header h1 {
+  font-size: 3em; /* Large font size for the course title */
+  color: #21294F; /* Color for the course title */
+  margin-bottom: 0.5em; /* Spacing between title and description */
+}
+
+.course-header p {
+  font-size: 1.0em; /* Adjust to match the design */
+  color: #6983DE; /* Description text color */
+  margin-bottom: 1em; /* Spacing between description and meta information */
+}
+
+.course-meta {
+  display: flex;
+  justify-content: left; /* Center the course meta information */
+  align-items: left; /* Align items vertically */
+  gap: 1em; /* Add space between meta items */
+  margin-bottom: 1em; /* Spacing below meta information */
+}
+
+.course-meta span {
+  font-size: 1.1em; /* Size of the meta information text */
+  color: #6983DE; /* Meta information text color */
+}
+
+.enroll-button {
+  padding: 0.5em 1em; /* Padding inside the button */
+  background-color: #34BCCF; /* Button background color */
+  color: white; /* Button text color */
+  border: none; /* No border */
+  border-radius: 0.3em; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 1em; /* Button text size */
+  transition: background-color 0.3s ease; /* Transition for a smooth color change */
+}
+
+.enroll-button:hover {
+  background-color: #6983DE; /* Darker background color on hover */
+}
+
+.course-modules {
+  padding: 2em; /* Adjust padding to match design */
+}
+
+.course-modules h2 {
+  font-size: 2em; /* Size of module titles */
+  color: #333; /* Module title color */
+  margin-bottom: 0.5em; /* Space below module title */
+}
+
+.course-modules p {
+  font-size: 1em; /* Paragraph text size */
+  color: #666; /* Paragraph text color */
+  line-height: 1.6; /* Line height for readability */
+}
+
+
+
+/* styles.css */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 15px;
+  padding-left: 40px;
+}
+
+th {
+  background-color: #21294F; /* Match the background color of the course header */
+  color: #fff;
+}
+td:hover{
+  color: #6983DE;
+  cursor: pointer;
+}
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+

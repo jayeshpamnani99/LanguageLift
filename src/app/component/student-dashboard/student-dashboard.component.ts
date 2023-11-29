@@ -67,7 +67,7 @@ export class StudentDashboardComponent implements OnInit {
   }
 
   showMyCourses() {
-    this.viewAllCourses = true;
+    this.viewAllCourses = false;
     this.loadMyCourses();
     this.buttonType='View this Course';
   }

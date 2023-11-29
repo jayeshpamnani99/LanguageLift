@@ -1,0 +1,82 @@
+/* Quiz View Container */
+.quiz-view-container {
+    background-color: #B4E6EA; /* Same background as student-dashboard */
+    margin: auto;
+    min-height: 100vh;
+    min-width: 100vw;
+    padding: 20px; /* Padding for the content */
+  }
+  
+  /* Title */
+  .quiz-view-container .title {
+    color: #21294F;
+    font-size: 24px; /* Larger font for the title */
+    font-weight: bold;
+    margin-bottom: 20px; /* Spacing after the title */
+  }
+  
+  /* Iframe Container */
+  .quiz-view-container .iframe-container {
+    margin-top: 20px; /* Spacing after the iframe */
+  }
+  
+  .quiz-view-container .iframe-container iframe {
+    width: 100%; /* Full width */
+    height: 60vh; /* Adjust height as needed */
+    border: none; /* Remove the border */
+  }
+  
+  /* Table Container */
+  .quiz-view-container .table-container {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Ensure the shadow doesn't get cut off */
+  }
+  
+  /* Table Styling */
+  .quiz-view-container table {
+    width: 100%; /* Full width of the container */
+    border-collapse: collapse; /* Remove space between cells */
+    max-height: 40vh;
+  }
+  
+  .quiz-view-container th,
+  .quiz-view-container td {
+    text-align: left;
+    padding: 10px; /* Spacing within cells */
+    border-bottom: 1px solid #ddd; /* Line under each row */
+  }
+  
+  .quiz-view-container th {
+    background-color: #21294F;
+    color: #fff;
+  }
+  
+  /* Inputs and Buttons within Table */
+  .quiz-view-container input[type="text"] {
+    padding: 5px 10px;
+    margin-right: 10px; /* Spacing between input and button */
+    border-radius: 5px;
+    border: 1px solid #ddd; /* Style to match the design */
+  }
+  
+  .quiz-view-container button {
+    background-color: #34BCCF;
+    color: #fff;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .quiz-view-container button:hover {
+    background-color: #6983DE;
+  }
+  
+  /* No Quizzes Style */
+  .quiz-view-container h1 {
+    text-align: center;
+    color: #21294F;
+  }
+  

@@ -1,29 +1,33 @@
-
-
-<h1>Ungraded Quizes</h1>
-<iframe [src]="contentURL" frameborder="0" class="w-100" height="600px"></iframe>
-<div *ngIf="areThereQuizes">
-    <table>
-        <thead>
-          <tr>
-            <th>Student Name</th>
-            <th>submission text</th>
-            <th>Grade</th>
-
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let quiz of quizDetails" >
-            <td>{{ quiz.userDetails.name }}</td>
-            <td><pre>{{ quiz.submissionText }}</pre></td>
-            <input type="text" [(ngModel)]="quiz.grade" name="grade" placeholder="grade" required>
-            <button (click)="onGradeClick(quiz.id,quiz.grade)">Grade</button>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-
-
+<app-back-button></app-back-button>
+<div class="quiz-view-container"> 
+  <div class="title">View Quiz Submissions</div>
+  <div class="iframe-container">
+    <iframe [src]="contentURL" frameborder="0" class="w-100"></iframe>
+  </div>
+  <div class="table-container">
+    <div *ngIf="areThereQuizes">
+      <table>
+          <thead>
+            <tr>
+              <th>Student Name</th>
+              <th>submission text</th>
+              <th>Grade</th>
+  
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let quiz of quizDetails" >
+              <td>{{ quiz.userDetails.name }}</td>
+              <td><pre>{{ quiz.submissionText }}</pre></td>
+              <input type="text" [(ngModel)]="quiz.grade" *ngIf="!quiz.marksObtained" name="grade" placeholder="marks" required>
+              <button *ngIf="!quiz.marksObtained" (click)="onGradeClick(quiz.id,quiz.grade)">Submit Marks</button>
+              <td *ngIf="quiz.marksObtained" >{{ quiz.marksObtained }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     <div *ngIf="!areThereQuizes">
       <h1>No Quizes to grade</h1>
+    </div>
+  </div>
+</div>
