@@ -5,7 +5,7 @@ import { LocalStorageService } from '../local-storage.service';
 import { CourseModel, InstructorDetails } from '../Models/courseModel';
 import { environment } from 'src/environments/environments';
 
-fdescribe('CourseService', () => {
+describe('CourseService', () => {
   let service: CourseService;
   let httpTestingController: HttpTestingController;
   let localStorageService: LocalStorageService;
