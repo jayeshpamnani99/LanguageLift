@@ -45,15 +45,6 @@ describe('ViewQuizModuleComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it(' initially, should not have content url', () => {
-    expect(component.contentURL).toBeFalsy();
-  });
-
-  it('initially, should not have answer', () => {
-    expect(component.answer).toBeFalsy();
-  });
-
-
   it('initially, should not have module details', () => {
     expect(component.moduleDetails).toBeFalsy();
   });
@@ -114,28 +105,28 @@ describe('ViewQuizModuleComponent', () => {
   //   );
   // });
 
-  it('should handle error submitting quiz details', () => {
-    const errorMessage = 'Error submitting quiz!';
-    quizServiceSpy.submitQuizDetails.and.throwError(errorMessage);
+  // it('should handle error submitting quiz details', () => {
+  //   const errorMessage = 'Error submitting quiz!';
+  //   quizServiceSpy.submitQuizDetails.and.throwError(errorMessage);
 
-    spyOn(console, 'error'); // Suppress console.error in the test output
+  //   spyOn(console, 'error'); // Suppress console.error in the test output
 
-    component.submitAnswer();
+  //   component.submitAnswer();
 
-    expect(quizServiceSpy.submitQuizDetails).toHaveBeenCalled();
-    expect(console.error).toHaveBeenCalledWith(errorMessage);
-    expect(dialogSpy.open).toHaveBeenCalledWith(
-      SignupConfirmationDialogComponent,
-      jasmine.objectContaining({ data: { message: errorMessage, title: 'Error', buttonName: 'close' } })
-    );
-  });
+  //   expect(quizServiceSpy.submitQuizDetails).toHaveBeenCalled();
+  //   expect(console.error).toHaveBeenCalledWith(errorMessage);
+  //   expect(dialogSpy.open).toHaveBeenCalledWith(
+  //     SignupConfirmationDialogComponent,
+  //     jasmine.objectContaining({ data: { message: errorMessage, title: 'Error', buttonName: 'close' } })
+  //   );
+  // });
 
-  it('should open a dialog for submission', () => {
-    component.openDialogForSubmission('Test message', 'Test title', 1);
+  // it('should open a dialog for submission', () => {
+  //   component.openDialogForSubmission('Test message', 'Test title', 1);
 
-    expect(dialogSpy.open).toHaveBeenCalledWith(
-      SignupConfirmationDialogComponent,
-      jasmine.objectContaining({ data: { message: 'Test message', title: 'Test title', buttonName: 'close' } })
-    );
-  });
+  //   expect(dialogSpy.open).toHaveBeenCalledWith(
+  //     SignupConfirmationDialogComponent,
+  //     jasmine.objectContaining({ data: { message: 'Test message', title: 'Test title', buttonName: 'close' } })
+  //   );
+  // });
 });

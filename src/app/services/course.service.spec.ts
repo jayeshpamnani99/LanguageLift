@@ -40,6 +40,51 @@ describe('CourseService', () => {
     expect(req.request.headers.get('Authorization')).toBe(mockToken);
     req.flush(mockCourses);
   });
+
+  it('should fetch my courses', () => {
+    const mockCourses: CourseModel[] = [/* some mock CourseModel data */];
+    const mockToken = 'fake-token';
+    spyOn(localStorageService, 'get').and.returnValue(mockToken);
+
+    service.getMyCourses().subscribe(courses => {
+      expect(courses).toEqual(mockCourses);
+    });
+
+    // Instead of directly using 'unenrolledCoursesUrl', we assume the URL based on the known API structure.
+    const expectedUrl = `${environment.apiBaseUrl}${environment.emsPort}/getEnrolledCoursesByStuId`;
+    const req = httpTestingController.expectOne(expectedUrl);
+    expect(req.request.method).toEqual('GET');
+    expect(req.request.headers.get('Authorization')).toBe(mockToken);
+    req.flush(mockCourses);
+  });
+
+  it('should include valid token in Authorization header', () => {
+    const validToken = 'validToken123';
+    spyOn(localStorageService, 'get').and.returnValue(validToken);
+
+    const result = service.getHttpOptionsWithToken();
+
+    expect(result.headers.get('Authorization')).toBe(validToken);
+  });
+
+  it('should handle empty token by having an empty Authorization header', () => {
+    spyOn(localStorageService, 'get').and.returnValue('');
+
+    const result = service.getHttpOptionsWithToken();
+
+    expect(result.headers.get('Authorization')).toBe('');
+  });
+
+
+ 
+
+
+  
+
+  
+
+
+
   // it('should return the course when the ID is found', () => {
   //   const testCourseId = 1; // Assuming this ID is supposed to be found
   //   const mockCourses: CourseModel[] = [
@@ -89,7 +134,6 @@ describe('CourseService', () => {
   //   expect(req.request.headers.get('Authorization')).toBe(mockToken);
   //   req.flush(mockCourses);
   // });
-
 
   // Add more tests here for error handling, different scenarios, etc.
 });

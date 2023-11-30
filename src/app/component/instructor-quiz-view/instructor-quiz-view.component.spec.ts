@@ -49,6 +49,33 @@ describe('InstructorQuizViewComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it(' initially, should not have content url', () => {
+    expect(component.contentURL).toBeFalsy();
+  });
+
+  it('initially, should not have answer', () => {
+    expect(component.marksObtained).toBeFalsy();
+  });
+
+  it('initially, should not have module details', () => {
+    expect(component.quizDetails).toBeFalsy();
+  });
+
+  // it('should sanitize content url', () => {
+  //   const sanitizerSpy = jasmine.createSpyObj('DomSanitizer', ['bypassSecurityTrustResourceUrl']);
+  //   sanitizerSpy.bypassSecurityTrustResourceUrl.and.returnValue('some/url');
+
+  //   courseServiceSpy.getModuleDetailsFull.and.returnValue(of({ contentUrl: 'some/url' }));
+  //   quizServiceSpy.getQuizSubmissionsForGrading.and.returnValue(of({ marksObtained: 10 }));
+  //   localStorageServiceSpy.get.and.returnValue('dummyToken'); // Assuming token is present
+
+  //   component.ngOnInit();
+
+  //   expect(sanitizerSpy.bypassSecurityTrustResourceUrl).toHaveBeenCalled();
+  //   expect(component.contentURL).toBeTruthy();
+  // });
+
+
   // it('should fetch module details and quiz submissions on initialization', () => {
   //   const moduleDetails = { id: 1, contentUrl: 'some/url' };
   //   const quizSubmissions = { marksObtained: 10 };
@@ -88,6 +115,7 @@ describe('InstructorQuizViewComponent', () => {
     expect(quizServiceSpy.getQuizSubmissionsForGrading).toHaveBeenCalled();
     expect(console.error).toHaveBeenCalledWith(errorMessage);
   });
+
 
   // it('should handle grading quiz', () => {
   //   const quizId = 1;
