@@ -5,6 +5,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { CourseService } from 'src/app/services/course.service';
 import { of } from 'rxjs';
 import { Router } from '@angular/router';
+import { BackButtonComponent } from 'src/app/back-button/back-button.component';
 
 describe('StudentDashboardComponent', () => {
   let component: StudentDashboardComponent;
@@ -18,7 +19,7 @@ describe('StudentDashboardComponent', () => {
     mockCourseService.enrollCourse.and.returnValue(of({}));
 
     TestBed.configureTestingModule({
-      declarations: [StudentDashboardComponent],
+      declarations: [StudentDashboardComponent, BackButtonComponent],
       imports: [MatDialogModule, RouterTestingModule],
       providers: [{ provide: CourseService, useValue: mockCourseService }],
     })
@@ -75,4 +76,63 @@ describe('StudentDashboardComponent', () => {
 
     expect(navigateByUrlSpy).toHaveBeenCalledWith('/student-course-view/' + courseId);
   });
+
+  it('should navigate to student-course-view on buttonClick when buttonType is not "Enroll"', () => {
+    component.buttonType = 'View this Course';
+
+    const courseId = 1;
+    const router = TestBed.inject(Router);
+    const navigateByUrlSpy = spyOn(router, 'navigateByUrl');
+
+    component.buttonClick(courseId);
+
+    expect(navigateByUrlSpy).toHaveBeenCalledWith('/student-course-view/' + courseId);
+  });
+
+  it('should navigate to student-course-view on buttonClick when buttonType is not "Enroll"', () => {
+    component.buttonType = 'View this Course';
+
+    const courseId = 1;
+    const router = TestBed.inject(Router);
+    const navigateByUrlSpy = spyOn(router, 'navigateByUrl');
+
+    component.buttonClick(courseId);
+
+    expect(navigateByUrlSpy).toHaveBeenCalledWith('/student-course-view/' + courseId);
+  });
+
+  it('should navigate to student-course-view on buttonClick when buttonType is not "Enroll"', () => {
+    component.buttonType = 'View this Course';
+
+    const courseId = 1;
+    const router = TestBed.inject(Router);
+    const navigateByUrlSpy = spyOn(router, 'navigateByUrl');
+
+    component.buttonClick(courseId);
+
+    expect(navigateByUrlSpy).toHaveBeenCalledWith('/student-course-view/' + courseId);
+  });
+
+  it('should navigate to student-course-view on buttonClick when buttonType is not "Enroll"', () => {
+    component.buttonType = 'View this Course';
+
+    const courseId = 1;
+    const router = TestBed.inject(Router);
+    const navigateByUrlSpy = spyOn(router, 'navigateByUrl');
+
+    component.buttonClick(courseId);
+
+    expect(navigateByUrlSpy).toHaveBeenCalledWith('/student-course-view/' + courseId);
+  });
+
+  it('signout should navigate to login', () => {
+    const router = TestBed.inject(Router);
+    const navigateByUrlSpy = spyOn(router, 'navigateByUrl');
+
+    component.signOut();
+
+    expect(navigateByUrlSpy).toHaveBeenCalledWith('/login');
+  });
+
+  
 });

@@ -12,6 +12,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { waitForAsync } from '@angular/core/testing';
+import { BackButtonComponent } from 'src/app/back-button/back-button.component';
 
 describe('TeacherDashboardComponent', () => {
   let component: TeacherDashboardComponent;
@@ -25,7 +26,7 @@ describe('TeacherDashboardComponent', () => {
     // ... (Same setup as before)
 
     TestBed.configureTestingModule({
-      declarations: [TeacherDashboardComponent],
+      declarations: [TeacherDashboardComponent,BackButtonComponent],
       providers: [
         { provide: CourseService, useValue: mockCourseService },
         { provide: MatDialog, useValue: mockDialog },
@@ -37,6 +38,8 @@ describe('TeacherDashboardComponent', () => {
     fixture = TestBed.createComponent(TeacherDashboardComponent);
     component = fixture.componentInstance;
   });
+  
+
 
   it('should create the component', () => {
     expect(component).toBeTruthy();
@@ -54,6 +57,17 @@ describe('TeacherDashboardComponent', () => {
     expect(component.loadAllCourses).toHaveBeenCalled();
     expect(component.buttonType).toBe('Enroll');
   });
+
+  it('should show my courses when calling showMyCourses()', () => {
+    component.viewAllCourses = true;
+    component.loadAllCourses = jasmine.createSpy('loadAllCourses');
+
+    component.showAllCourses();
+
+    expect(component.viewAllCourses).toBeTrue();
+    expect(component.loadAllCourses).toHaveBeenCalled();
+    expect(component.buttonType).toBe('Enroll');
+  } );
 
   // ...
 

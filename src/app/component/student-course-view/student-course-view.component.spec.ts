@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { CourseService } from 'src/app/services/course.service';
 import { LocalStorageService } from 'src/app/local-storage.service';
 import { SignupConfirmationDialogComponent } from '../signup-confirmation-dialog/signup-confirmation-dialog.component';
+import { BackButtonComponent } from 'src/app/back-button/back-button.component';
 
 
 
@@ -26,7 +27,7 @@ describe('StudentCourseViewComponent', () => {
     mockLocalStorageService = jasmine.createSpyObj('LocalStorageService', ['get']);
 
     TestBed.configureTestingModule({
-      declarations: [StudentCourseViewComponent],
+      declarations: [StudentCourseViewComponent,BackButtonComponent],
       providers: [
         { provide: CourseService, useValue: mockCourseService },
         { provide: ActivatedRoute, useValue: mockActivatedRoute },
