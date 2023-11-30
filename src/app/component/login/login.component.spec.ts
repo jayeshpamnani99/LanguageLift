@@ -9,7 +9,7 @@ import { SignupService } from 'src/app/services/signup.service';
 import { Router } from '@angular/router';
 import { of } from 'rxjs';
 
-fdescribe('LoginComponent', () => {
+describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
 
