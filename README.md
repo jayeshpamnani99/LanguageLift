@@ -42,3 +42,11 @@ Architecture information view
 <p align='center'>  
   <img src='Database schema.png' />
 </p>
+
+### Contributors
+
+1. Anjaneya Ketkar
+2. Jayesh Pamnani
+3. Manav Gupta
+4. Divya Lnu
+5. Janesh Hasija
