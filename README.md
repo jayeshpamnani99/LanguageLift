@@ -35,3 +35,10 @@ Architecture Logical View
 <p align='center'>  
   <img src='Architecture Photo.png' />
 </p>
+
+
+Architecture information view
+
+<p align='center'>  
+  <img src='Database schema.png' />
+</p>
