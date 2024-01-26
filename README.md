@@ -26,18 +26,23 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
-## Full project implementation
+### Project implementation
 
 For implementing this project my team implemented four java spring boot microservices and used mySQL database for the backend.
 
-Architecture Logical View
+##Architecture Logical View
 
 <p align='center'>  
   <img src='Architecture Photo.png' />
 </p>
 
+Links for the java spring boot services- 
+Quiz Management Service - https://github.com/anjaneyak10/Quiz-Management-Service
+Course Content Management Service - https://github.com/anjaneyak10/Course-Content-Management-Service
+Enrollment Management Service - https://github.com/anjaneyak10/Enrollment-Management-Service
 
-Architecture information view
+
+##Architecture information view
 
 <p align='center'>  
   <img src='Database schema.png' />
