@@ -48,6 +48,18 @@ Enrollment Management Service - https://github.com/anjaneyak10/Enrollment-Manage
   <img src='Database schema.png' />
 </p>
 
+For further documentation please refer to SOFTWARE ARCHITECTURE AND DETAILED DESIGN DOCUMENT (SADD) https://github.com/anjaneyak10/LanguageLift/blob/master/LanguageLift%20SADD.pdf
+
+Application Pages- 
+<p align='center'>  
+   <img src='Signup.png' />
+  <img src='Course View.png' />
+   <img src='Course Enrollment.png' />
+  <img src='Quiz Submission.png' />
+  Quiz Submission.png
+</p>
+
+
 ### Contributors
 
 1. Anjaneya Ketkar
