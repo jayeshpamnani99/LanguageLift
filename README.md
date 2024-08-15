@@ -37,9 +37,9 @@ For implementing this project my team implemented four java spring boot microser
 </p>
 
 Links for the java spring boot services- 
-Quiz Management Service - https://github.com/anjaneyak10/Quiz-Management-Service <br>
-Course Content Management Service - https://github.com/anjaneyak10/Course-Content-Management-Service <br>
-Enrollment Management Service - https://github.com/anjaneyak10/Enrollment-Management-Service <br> 
+Quiz Management Service - https://github.com/jayeshpamnani99/Quiz-Management-Service <br>
+Course Content Management Service - https://github.com/jayeshpamnani99/Course-Content-Management-Service <br>
+Enrollment Management Service - https://github.com/jayeshpamnani99/Enrollment-Management-Service <br> 
 
 
 ## Architecture information view
